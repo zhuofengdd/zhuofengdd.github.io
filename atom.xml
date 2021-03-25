@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>韦阳的博客</title>
+  <title>Zhuofeng&#39;s Blog</title>
   
-  <subtitle>算法码上来</subtitle>
+  <subtitle>记录生活。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zhuofengdd.top/"/>
-  <updated>2021-03-25T03:37:57.983Z</updated>
+  <updated>2021-03-25T04:24:48.593Z</updated>
   <id>http://www.zhuofengdd.top/</id>
   
   <author>
-    <name>韦阳</name>
+    <name>zhuofeng</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="http://www.zhuofengdd.top/2021/03/25/test/"/>
+    <id>http://www.zhuofengdd.top/2021/03/25/test/</id>
+    <published>2021-03-25T04:24:48.000Z</published>
+    <updated>2021-03-25T04:24:48.593Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>5W2H | 关于写博客的七点反思</title>
