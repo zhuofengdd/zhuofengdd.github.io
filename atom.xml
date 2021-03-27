@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zhuofengdd.top/"/>
-  <updated>2021-03-26T12:38:07.365Z</updated>
+  <updated>2021-03-27T02:40:18.055Z</updated>
   <id>http://www.zhuofengdd.top/</id>
   
   <author>
@@ -17,11 +17,66 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>RabbitMQ基础</title>
+    <link href="http://www.zhuofengdd.top/2021/03/27/rabbitmq-ji-chu/"/>
+    <id>http://www.zhuofengdd.top/2021/03/27/rabbitmq-ji-chu/</id>
+    <published>2021-03-27T02:26:46.000Z</published>
+    <updated>2021-03-27T02:40:18.055Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;RabbitMQ-实战教程&quot;&gt;&lt;a href=&quot;#RabbitMQ-实战教程&quot; class=&quot;headerlink&quot; title=&quot;RabbitMQ 实战教程&quot;&gt;&lt;/a&gt;RabbitMQ 实战教程&lt;/h1&gt;&lt;h2 id=&quot;1-MQ引言&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="blog" scheme="http://www.zhuofengdd.top/categories/blog/"/>
+    
+    
+      <category term="RabbitMQ" scheme="http://www.zhuofengdd.top/tags/RabbitMQ/"/>
+    
+      <category term="JAVA" scheme="http://www.zhuofengdd.top/tags/JAVA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>leetcode-数组类小结</title>
+    <link href="http://www.zhuofengdd.top/2021/03/27/leetcode-shu-zu-lei-xiao-jie/"/>
+    <id>http://www.zhuofengdd.top/2021/03/27/leetcode-shu-zu-lei-xiao-jie/</id>
+    <published>2021-03-27T02:14:18.000Z</published>
+    <updated>2021-03-27T02:40:14.980Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;283-移动零点&quot;&gt;&lt;a href=&quot;#283-移动零点&quot; class=&quot;headerlink&quot; title=&quot;283    移动零点&quot;&gt;&lt;/a&gt;283    移动零点&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;//Given an array nums,
+        
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="http://www.zhuofengdd.top/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="leetcode" scheme="http://www.zhuofengdd.top/tags/leetcode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>md文件书写语法</title>
     <link href="http://www.zhuofengdd.top/2021/03/26/md-wen-jian-shu-xie-yu-fa/"/>
     <id>http://www.zhuofengdd.top/2021/03/26/md-wen-jian-shu-xie-yu-fa/</id>
     <published>2021-03-26T11:43:30.000Z</published>
-    <updated>2021-03-26T12:38:07.365Z</updated>
+    <updated>2021-03-27T02:40:18.055Z</updated>
     
     <summary type="html">
     
@@ -38,7 +93,7 @@
     
     </summary>
     
-      <category term="笔记" scheme="http://www.zhuofengdd.top/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="语法" scheme="http://www.zhuofengdd.top/categories/%E8%AF%AD%E6%B3%95/"/>
     
     
       <category term="笔记" scheme="http://www.zhuofengdd.top/tags/%E7%AC%94%E8%AE%B0/"/>
