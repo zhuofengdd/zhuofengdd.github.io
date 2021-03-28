@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zhuofengdd.top/"/>
-  <updated>2021-03-27T02:40:18.055Z</updated>
+  <updated>2021-03-28T13:16:07.872Z</updated>
   <id>http://www.zhuofengdd.top/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>脉搏波处理与分析——降噪篇（一）</title>
+    <link href="http://www.zhuofengdd.top/2021/03/28/mai-bo-bo-chu-li-yu-fen-xi-jiang-zao-pian-yi/"/>
+    <id>http://www.zhuofengdd.top/2021/03/28/mai-bo-bo-chu-li-yu-fen-xi-jiang-zao-pian-yi/</id>
+    <published>2021-03-28T11:49:26.000Z</published>
+    <updated>2021-03-28T13:16:07.872Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;今天打算开一个系列，属于&lt;strong&gt;信号处理与分析&lt;/strong&gt;范畴。&lt;/li&gt;
+&lt;li&gt;这是我硕士研究生在读期间总结的一部分，旨在对&lt;strong&gt;脉搏波&lt;/strong&gt;进行一个较为完整的分析与处理。&lt;/li&gt;
+&lt;li&gt;本系
+        
+      
+    
+    </summary>
+    
+      <category term="信号处理" scheme="http://www.zhuofengdd.top/categories/%E4%BF%A1%E5%8F%B7%E5%A4%84%E7%90%86/"/>
+    
+    
+      <category term="脉搏波" scheme="http://www.zhuofengdd.top/tags/%E8%84%89%E6%90%8F%E6%B3%A2/"/>
+    
+      <category term="降噪" scheme="http://www.zhuofengdd.top/tags/%E9%99%8D%E5%99%AA/"/>
+    
+  </entry>
   
   <entry>
     <title>RabbitMQ基础</title>

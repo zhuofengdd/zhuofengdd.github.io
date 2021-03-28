@@ -4,14 +4,16 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="md文件书写语法, zhuofeng BioMedicalEngineering 脉搏采集 生物信号采集 生物信息处理">
+    <meta name="keywords" content="脉搏波处理与分析——降噪篇（一）, zhuofeng BioMedicalEngineering 脉搏采集 生物信号采集 生物信息处理">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
     <meta name="description" content="
-花了一天的时间打造了自己的博客，这里是属于自己的小天地，为了更好的做总结和更新博客，这里有必要对Markdown语法进行深入了解
 
-什么是MarkdownMarkdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber">
+今天打算开一个系列，属于信号处理与分析范畴。
+这是我硕士研究生在读期间总结的一部分，旨在对脉搏波进行一个较为完整的分析与处理。
+本系列分为两部分，一部分为脉搏波数据降噪，另一部分为脉搏波特征提取
+希望能给接触到信号分析领域的学弟学妹或者">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +21,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>md文件书写语法 | Zhuofeng&#39;s Blog</title>
+    <title>脉搏波处理与分析——降噪篇（一） | Zhuofeng&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -319,13 +321,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        md文件书写语法
+                        脉搏波处理与分析——降噪篇（一）
                     </div>
                 </div>
             </div>
@@ -437,12 +439,12 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/笔记/" target="_blank">
-                            <span class="chip bg-color">笔记</span>
+                        <a href="/tags/脉搏波/" target="_blank">
+                            <span class="chip bg-color">脉搏波</span>
                         </a>
                         
-                        <a href="/tags/语法/" target="_blank">
-                            <span class="chip bg-color">语法</span>
+                        <a href="/tags/降噪/" target="_blank">
+                            <span class="chip bg-color">降噪</span>
                         </a>
                         
                     </div>
@@ -453,8 +455,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/语法/" class="post-category" target="_blank">
-                            语法
+                        <a href="/categories/信号处理/" class="post-category" target="_blank">
+                            信号处理
                         </a>
                         
                     </div>
@@ -465,7 +467,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-26
+                    2021-03-28
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -479,14 +481,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    724
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
                 
@@ -503,100 +505,67 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>花了一天的时间打造了自己的博客，这里是属于自己的小天地，为了更好的做总结和更新博客，这里有必要对Markdown语法进行深入了解</p>
-</blockquote>
-<h2 id="什么是Markdown"><a href="#什么是Markdown" class="headerlink" title="什么是Markdown"></a>什么是Markdown</h2><pre><code>Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）。它允许人们「使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档 」—— 维基百科
-这里不再啰嗦赘述，直接总结知识点。</code></pre><h2 id="标题修饰符"><a href="#标题修饰符" class="headerlink" title="标题修饰符"></a>标题修饰符</h2><pre><code> 也就是所说的大标题，这里标题一共可以分为7级，每多一个“#”符号则向下分散小标题。
- 如何使用：
- “# ”既是使用方法，#符号后跟一个空格，接着书写自己的标题内容，此为一级标题。更具体的
- “## ”为二级标题
- “### ”为三级标题
- “#### ”为四级标题
- 后面的逻辑是一样的。</code></pre><h2 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h2><pre><code>这里所说的有序列表即为有顺序
-如何使用
-1. 即数字加.再加一个空格，
-2. 就是这种效果
-3. 很简单吧</code></pre><h2 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h2><pre><code>如何使用
-- 减号加空格
-+ 加号加空格
-我比较习惯使用减号，像是在罗列一个列表</code></pre><ul>
-<li>test1</li>
-</ul>
 <ul>
-<li>test2</li>
+<li>今天打算开一个系列，属于<strong>信号处理与分析</strong>范畴。</li>
+<li>这是我硕士研究生在读期间总结的一部分，旨在对<strong>脉搏波</strong>进行一个较为完整的分析与处理。</li>
+<li>本系列分为两部分，一部分为<strong>脉搏波数据降噪</strong>，另一部分为<strong>脉搏波特征提取</strong></li>
+<li>希望能给接触到信号分析领域的学弟学妹或者同学提供一个帮助和引导。</li>
+<li>基于语言与工具：Matlab</li>
+<li>针对数据序列：一维</li>
+<li>后面我将会详细介绍我所写的代码对应的功能与对应知识点</li>
+<li>PS：此算法仅针对脉搏波，当然技术与原理是共通的。降噪部分也可以应用到其他信号中去</li>
 </ul>
-<h2 id="引用修饰符"><a href="#引用修饰符" class="headerlink" title="引用修饰符"></a>引用修饰符</h2><pre><code>这个更简单了
-&gt; 一级引用
-&gt;&gt; 二级引用
-&gt;&gt;&gt; 三级引用
-&gt;&gt;&gt;&gt; 四级引用</code></pre><p>效果如下</p>
-<blockquote>
-<p> 一级引用</p>
-<blockquote>
-<p>二级引用</p>
-<blockquote>
-<p>三级引用</p>
-<blockquote>
-<p>四级引用</p>
 </blockquote>
+<h2 id="1-何为脉搏波？"><a href="#1-何为脉搏波？" class="headerlink" title="1. 何为脉搏波？"></a>1. 何为脉搏波？</h2><pre><code>脉搏波的检测起始于我国古代的中医脉诊。在西方医学的诞生前，我国中医便依据经验不断地传承发展下来。形成了自己独有的一套诊疗体系。
+在中医所说的四诊“望、闻、问、切”中，最为重要的便是“切脉”，所述“切脉”并不为人所常称呼，我们常称其为把脉，凭借的便是医生指下对脉搏的搏动感知，进而对身体情况进行评判。
+这很难在现代的科学社会所被承认。诚然，中医在历史的医学发展中扮演着不可或缺的一部分，但在其发展过程中，仅凭借医师口口相传，以经验进行教学，每个人的悟法不同，便可得到不同的意思，以此形式发展，必然是不可循证，且无法评判诊疗的正确性和真实性的。
+因此我们有必要对脉搏进行拆解、去分析。发现不同脉象的规律与判定。</code></pre><h2 id="2-脉搏波长啥样？"><a href="#2-脉搏波长啥样？" class="headerlink" title="2. 脉搏波长啥样？"></a>2. 脉搏波长啥样？</h2><p>随便给大家展示一下：<br><img src="1.png" alt="脉搏波1"></p>
+<blockquote>
+<p>有看清楚吗?<br>包括完整的<strong>波峰</strong>和<strong>波谷</strong>，以及<strong>重搏波</strong>。这肯定就是脉搏波没错了！！<br>如果你那么确定，那再看一张：</p>
 </blockquote>
-</blockquote>
+<p><img src="2.png" alt="脉搏波2"></p>
+<blockquote>
+<p>您可能要跟我争论了，这tn的也能叫脉搏波？这不就是一个波峰吗<br>您给说对了，这就是只有单波峰的脉搏波。</p>
 </blockquote>
 <blockquote>
-<p>it’s a test<br>换行了<br>怎么结束呢<br>再多打个换行就可以了，打两下换行</p>
+<p>其实脉搏波形状多种多样，每个人的脉搏都会跳动出不同的样子，不同于教科书，就像树叶一样，世界上没有两个相同的脉搏波形。你是唯一且独特的。<br>但其实最标准的脉搏是这个样子的：</p>
 </blockquote>
-<p>111</p>
-<h2 id="代码修饰符"><a href="#代码修饰符" class="headerlink" title="代码修饰符"></a>代码修饰符</h2><pre><code>简单的，``两个英文反引号就可以将内部包括的代码做代码块包裹,针对于少量代码
-对于大量代码用``` ```三个反引号</code></pre><p>效果如下：<br><code>i&#39;m spider man</code></p>
-<pre><code>i&#39;m spider man，
-i&#39;m spider man，
-i&#39;m spider man</code></pre><h2 id="链接Link"><a href="#链接Link" class="headerlink" title="链接Link"></a>链接Link</h2><pre><code>包括行内式与参数式写法，为方便我会使用行内
-[](),[]里写文字，()里写链接  [my Blog](https://www.zhuofengdd.top)</code></pre><p>效果如下：<br><a href="https://www.zhuofengdd.top">my Blog</a></p>
-<h2 id="图片插入"><a href="#图片插入" class="headerlink" title="图片插入"></a>图片插入</h2><pre><code>![]()即可
-![小猪](1.jpg) ()写相对路径</code></pre><p><img src="1.jpg" alt="小猪"></p>
-<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><pre><code>连续三个-或*或_都可以，其实不连续也可以</code></pre><h2 id="效果如下："><a href="#效果如下：" class="headerlink" title="效果如下："></a>效果如下：</h2><hr>
-<hr>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><pre><code>这个代码比较多
-|title|title|title|
-|:-|:-:|-:|  这里:-为居左，:-:为居中，-:居右
-|abc|bcd|cde|
-|abc|bcd|cde|
-|abc|bcd|cde|</code></pre><p>效果如下：</p>
-<table>
-<thead>
-<tr>
-<th align="left">title</th>
-<th align="center">title</th>
-<th align="right">title</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-<tr>
-<td align="left">abc</td>
-<td align="center">bcd</td>
-<td align="right">cde</td>
-</tr>
-</tbody></table>
-<h2 id="强调"><a href="#强调" class="headerlink" title="强调"></a>强调</h2><pre><code>* 或_包裹起来就可以，一个为斜体两个为加粗
-*i&#39;m spider man*
-**i&#39;m spider man**
-_i&#39;m spider man_
-__i&#39;m spider man__</code></pre><p>效果如下：<br><em>i’m spider man</em><br><strong>i’m spider man</strong><br>_i’m spider man_<br><strong>i’m spider man</strong></p>
-<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><pre><code>加一个\反斜杠
-\-
-\+
-\*</code></pre><p>-<br>+<br>*</p>
-<h2 id="删除字符"><a href="#删除字符" class="headerlink" title="删除字符"></a>删除字符</h2><pre><code>用~~~~包裹起来两个为一对哦</code></pre><p>效果如下：<br><del>i’m spider man</del></p>
-<p>目前总结这几种简单常用的，学到这基本写博客就没问题了。</p>
+<p><img src="3.png" alt="脉搏波"></p>
+<blockquote>
+<p>可以看到正常的脉搏波是由<strong>波谷-&gt;波峰-&gt;波峰谷点-&gt;重搏前波-&gt;重搏波谷-&gt;重搏波-&gt;波谷</strong>所组成的。<br>这个过程对应着<strong>左心室收缩射血-&gt;二尖瓣关闭-&gt;射血结束期-&gt;主动脉瓣关闭</strong>等一系列的过程，如果你对局部解剖学感兴趣，可以看一看心血循环对应的内容。<br>当然以上所述的心血循环过程并不保证顺序正确与内容全面。自己这方面的知识也有所忘记。只是阐述一下相关的过程，等我再次温习的时候会回来进行补充。</p>
+<p>图中的字母含义先在此进行解释：</p>
+<ul>
+<li>a-&gt;脉搏波谷点</li>
+<li>b-&gt;脉搏波波峰</li>
+<li>c-&gt;波峰谷点</li>
+<li>d-&gt;重博前波</li>
+<li>e-&gt;重搏波谷</li>
+<li>f-&gt;重搏波</li>
+<li>g-&gt;下一个周期的脉搏波谷点；即起点   </li>
+<li>h1、h2、h3、h4、h5-&gt;分别对应相应点的高度，即幅值</li>
+<li>t1、t5-&gt;对应相应点所需要的时间</li>
+<li>T-&gt;周期</li>
+</ul>
+<p>当然因为每个人的脉象不同，也就代表了不同的体质。<br>中医医师从脉象中辨别病情，若脉搏波信息可以数字化，以科学的方法做评判会对中医切脉带来莫大的帮助与发展。</p>
+</blockquote>
+<h2 id="3-找不到脉搏波数据？"><a href="#3-找不到脉搏波数据？" class="headerlink" title="3. 找不到脉搏波数据？"></a>3. 找不到脉搏波数据？</h2><blockquote>
+<p>这可能是很多人最苦恼的事情。<br>在读大学的学弟学妹接触此方面数据处理时，总是愁于找不到对应的数据。<br>的确，现在网络上想找到优秀的脉搏波数据库并不容易。心声信号倒是可以查到很多。<br>在此我将给同学们介绍一个对应的脉搏波数据库，直接贴网站：<br><a href="http://www4.comp.polyu.edu.hk/" target="_blank" rel="noopener">http://www4.comp.polyu.edu.hk/</a><br>这是由香港理工大学生物医学工程系团队搭建的数据库。里面包括了很多系列，舌象、指纹、心声、脉搏等等数据库。<br>可以说还是蛮全面的了，我所编写的处理算法就是以此数据进行处理的<br>如果有不会操作的小伙伴可以联系我的邮箱<em><a href="mailto:1192821364@qq.com" target="_blank" rel="noopener">1192821364@qq.com</a></em>或<em><a href="mailto:zhuofengdd@outlook.com" target="_blank" rel="noopener">zhuofengdd@outlook.com</a></em>备注好需求<br>或在评论区留言，我可以以压缩包的方式邮件传送给你。<br>里面的文件全都是 .mat格式，matlab一个简单的语句就可导入：</p>
+<pre class="line-numbers language-matlab"><code class="language-matlab">clc<span class="token punctuation">;</span>
+clear all<span class="token punctuation">;</span>
+<span class="token function">load</span><span class="token punctuation">(</span><span class="token string">'PolyU_Pressure_Pulse.mat'</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">%这里的路径写你所存放此文件的路径</span>
+Fs <span class="token operator">=</span> <span class="token number">500</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">%MIT数据库心电采样频率为500Hz--------------可调参数-------------</span>
+patientNum<span class="token operator">=</span><span class="token number">165</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">%可设定对应的序号</span>
+pulseSig <span class="token operator">=</span> <span class="token function">Diabetes</span><span class="token punctuation">(</span>patientNum<span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">%--------------可调参数-------------提取对应序号下的脉搏波序列</span>
+t <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token function">length</span><span class="token punctuation">(</span>pulseSig<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">%时间序列</span>
+tx <span class="token operator">=</span> t<span class="token operator">./</span>Fs<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">%表示所处时间点位</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>进行绘图</p>
+<pre><code>plot(pulseSig);grid on;
+title(&#39;原始信号&#39;);</code></pre><p>可看到结果：<br><img src="4.png" alt="165号原始脉搏信息"><br>就是如此简单，拿到脉搏后小伙伴们就可以针对自己的需求做对应的操作了。</p>
+</blockquote>
+<blockquote>
+<p>第一篇介绍到这里暂时告一段落，下一篇将要开始介绍降噪的过程了<br>想到知识点随时补充，欢迎小伙伴们常点击。<br><strong>有喜欢的小伙伴可以多多分享哦</strong><br><strong>欢迎打赏！！！</strong></p>
+</blockquote>
+<p><em>本系列均为原创，如有引用请注明出处，如以本内容获取盈利，本人有法律权益进行相关维权！！</em></p>
 
             </div>
             <hr />
@@ -755,9 +724,9 @@ __i&#39;m spider man__</code></pre><p>效果如下：<br><em>i’m spider man</e
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《md文件书写语法》
+                    《脉搏波处理与分析——降噪篇（一）》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/03/26/md-wen-jian-shu-xie-yu-fa/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/03/28/mai-bo-bo-chu-li-yu-fen-xi-jiang-zao-pian-yi/" property="cc:attributionName"
                rel="cc:attributionURL">
                 zhuofeng
             </a> 采用
@@ -798,7 +767,7 @@ __i&#39;m spider man__</code></pre><p>效果如下：<br><em>i’m spider man</e
         repo: 'zhuofengdd.github.io',
         owner: 'zhuofengdd',
         admin: "zhuofengdd",
-        id: '2021/03/26/md-wen-jian-shu-xie-yu-fa/',
+        id: '2021/03/28/mai-bo-bo-chu-li-yu-fen-xi-jiang-zao-pian-yi/',
         distractionFreeMode: true  // Facebook-like distraction free mode
     });
 
@@ -1081,47 +1050,57 @@ __i&#39;m spider man__</code></pre><p>效果如下：<br><em>i’m spider man</e
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/27/leetcode-shu-zu-lei-xiao-jie/">
+                <a href="/2021/03/28/mai-bo-bo-chu-li-yu-fen-xi-jiang-zao-pian-yi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="leetcode-数组类小结">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="脉搏波处理与分析——降噪篇（一）">
                         
-                        <span class="card-title">leetcode-数组类小结</span>
+                        <span class="card-title">脉搏波处理与分析——降噪篇（一）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            283    移动零点
-//Given an array nums, write a function to move all 0’s to the end of it while m//aintaining the relative or
+                            
+
+今天打算开一个系列，属于信号处理与分析范畴。
+这是我硕士研究生在读期间总结的一部分，旨在对脉搏波进行一个较为完整的分析与处理。
+本系列分为两部分，一部分为脉搏波数据降噪，另一部分为脉搏波特征提取
+希望能给接触到信号分析领域的学弟学妹或者
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-27
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/算法/" class="post-category" target="_blank">
-                                    算法
+                            <a href="/categories/信号处理/" class="post-category" target="_blank">
+                                    信号处理
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/leetcode/" target="_blank">
-                        <span class="chip bg-color">leetcode</span>
+                    <a href="/tags/脉搏波/" target="_blank">
+                        <span class="chip bg-color">脉搏波</span>
+                    </a>
+                    
+                    <a href="/tags/降噪/" target="_blank">
+                        <span class="chip bg-color">降噪</span>
                     </a>
                     
                 </div>
@@ -1132,53 +1111,49 @@ __i&#39;m spider man__</code></pre><p>效果如下：<br><em>i’m spider man</e
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/26/md-wen-jian-shu-xie-yu-fa/">
+                <a href="/2021/03/27/rabbitmq-ji-chu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="md文件书写语法">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="RabbitMQ基础">
                         
-                        <span class="card-title">md文件书写语法</span>
+                        <span class="card-title">RabbitMQ基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-花了一天的时间打造了自己的博客，这里是属于自己的小天地，为了更好的做总结和更新博客，这里有必要对Markdown语法进行深入了解
-
-什么是MarkdownMarkdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber
+                            RabbitMQ 实战教程1.MQ引言1.1 什么是MQMQ(Message Quene) :  翻译为 消息队列,通过典型的 生产者和消费者模型,生产者不断向消息队列中生产消息，消费者不断的从队列中获取消息。因为消息的生产和消费都是异步的
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-26
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-27
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/语法/" class="post-category" target="_blank">
-                                    语法
+                            <a href="/categories/blog/" class="post-category" target="_blank">
+                                    blog
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/笔记/" target="_blank">
-                        <span class="chip bg-color">笔记</span>
+                    <a href="/tags/RabbitMQ/" target="_blank">
+                        <span class="chip bg-color">RabbitMQ</span>
                     </a>
                     
-                    <a href="/tags/语法/" target="_blank">
-                        <span class="chip bg-color">语法</span>
+                    <a href="/tags/JAVA/" target="_blank">
+                        <span class="chip bg-color">JAVA</span>
                     </a>
                     
                 </div>
