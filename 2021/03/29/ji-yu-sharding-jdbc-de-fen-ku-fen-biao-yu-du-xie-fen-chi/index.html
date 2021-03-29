@@ -1104,46 +1104,41 @@ sharding JDBC区别于MYcat，是基于客户端的代理模式
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
-            </div>
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/29/ji-yu-sharding-jdbc-de-fen-ku-fen-biao-yu-du-xie-fen-chi/">
+                <a href="/2021/03/29/shi-fen-zhong-liao-jie-fen-bu-shi-quan-ju-id/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/40.jpg" class="responsive-img" alt="基于sharding jdbc的分库分表与读写分离">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="十分钟了解分布式全局id">
                         
-                        <span class="card-title">基于sharding jdbc的分库分表与读写分离</span>
+                        <span class="card-title">十分钟了解分布式全局id</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1 简介
-
-sharding JDBC区别于MYcat，是基于客户端的代理模式
-只能由java语言使用
+                            
 
 
+1 分库分表引发的id问题
+每张表都有唯一标识，通常使用id
 
-业务全部通过sharding-JDBC进行数据库的连接
-注册中心可以使用zookeeper
+id通常采用自增的方式
 
-与mycat区别：
+分库分表情况下，每张表id从0开始自增
 
-
-
-
-
-2 s
+不同的分片上。id可能重复——&gt;id不唯一
+2 UUID
+UUID–&gt;通用唯一识别码使用U
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-29
-                            </span>
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-29
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1156,16 +1151,11 @@ sharding JDBC区别于MYcat，是基于客户端的代理模式
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
                     <a href="/tags/JAVA/" target="_blank">
                         <span class="chip bg-color">JAVA</span>
-                    </a>
-                    
-                    <a href="/tags/SQL/" target="_blank">
-                        <span class="chip bg-color">SQL</span>
                     </a>
                     
                 </div>
@@ -1412,7 +1402,7 @@ sharding JDBC区别于MYcat，是基于客户端的代理模式
 
             
             &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-            <span class="white-color">16.2k</span>
+            <span class="white-color">16.8k</span>
             
 
             <br>

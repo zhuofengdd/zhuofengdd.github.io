@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>十分钟了解分布式全局id</title>
+      <link href="2021/03/29/shi-fen-zhong-liao-jie-fen-bu-shi-quan-ju-id/"/>
+      <url>2021/03/29/shi-fen-zhong-liao-jie-fen-bu-shi-quan-ju-id/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p><img src="1.png" alt><br><img src="2.png" alt></p></blockquote><h1 id="1-分库分表引发的id问题"><a href="#1-分库分表引发的id问题" class="headerlink" title="1 分库分表引发的id问题"></a>1 分库分表引发的id问题</h1><ul><li><p>每张表都有唯一标识，通常使用id</p></li><li><p>id通常采用自增的方式</p></li><li><p>分库分表情况下，每张表id从0开始自增</p></li><li><p>不同的分片上。id可能重复——&gt;id不唯一<br><img src="3.png" alt></p><h1 id="2-UUID"><a href="#2-UUID" class="headerlink" title="2 UUID"></a>2 UUID</h1><blockquote><p>UUID–&gt;通用唯一识别码<br>使用UUID，可保证每一条记录的id不同</p></blockquote></li></ul><p><strong>缺点：</strong>只是单纯id，无意义，长度32位过长</p><blockquote><p>MyCat不支持UUID，sharding JDBC支持UUID</p></blockquote><blockquote><ul><li>sharding-JDBC使用UUID</li><li>配置中application.proporties对shardingJDBC的配置追加两行：<ul><li><img src="4.png" alt></li></ul></li><li>设定对应列与key生成策略</li><li><img src="5.png" alt="测试"><br>如果使用UUID生成的列进行分片策略配置，则不能使用行内表达式<br>且要进行自定义分片策略：<ul><li><img src="6.png" alt="这里需要重写方法，从而获取生成的UUID"></li><li><img src="7.png" alt></li></ul></li></ul></blockquote><h1 id="3-统一ID序列"><a href="#3-统一ID序列" class="headerlink" title="3 统一ID序列"></a>3 统一ID序列</h1><blockquote><p>ID的值统一从一个集中的ID生成器中获取，避免重复<br><img src="8.png" alt><br>MyCat支持Id序列生成，shardingJDBC不支持<br>两种方式：<strong>本地文件方式</strong>和<strong>数据库方式</strong></p><ul><li>测试环境：本地文件形式</li><li>上线后：数据库模式</li><li>优点：ID集中管理，避免重复</li><li>缺点:并发量大时，数据库压力大</li></ul></blockquote><h2 id="3-1-本地文件方式"><a href="#3-1-本地文件方式" class="headerlink" title="3.1 本地文件方式"></a>3.1 本地文件方式</h2><blockquote><p>使用131与132进行演示</p><ul><li>在130的mycat上更改server.xml<ul><li><img src="9.png" alt></li></ul></li><li>sequence_conf.proporties<ul><li><img src="10.png" alt></li></ul></li><li>改完后在130的mycat命令行界面键入：(后缀名与上述文件中配置、表名一致)</li><li><img src="12.png" alt></li><li>在插入数据时 报错：mycat的bug—–&gt;解决方法如下图：<ul><li><img src="11.png" alt></li><li>改完配置要reload @@config；</li></ul></li><li>重新运行sql语句就可以了<br>当不想给语句中写id时，可以在schema.xml进行修改<ul><li><blockquote><p><img src="13.png" alt></p></blockquote></li></ul></li></ul></blockquote><h2 id="3-2-数据库方式"><a href="#3-2-数据库方式" class="headerlink" title="3.2 数据库方式"></a>3.2 数据库方式</h2><blockquote><ul><li>首先改序列方式<ul><li><img src="14.png" alt></li></ul></li><li>数据库中建表，只能选择一个节点</li><li>其中根目录的dbseq.sql为对应脚本，使用命令<code>sz dbseq.sql</code></li><li>在131的数据库执行，生成MYCAT_SEQUENCE表和对应函数<ul><li><img src="15.png" alt="表"></li><li><img src="16.png" alt="函数"></li><li><img src="17.png" alt="在表中添加序列"></li><li>配置sequence_db_conf.proporties</li><li><img src="18.png" alt></li><li><code>./bin/mycat restart</code>重启一下</li></ul></li></ul></blockquote><h1 id="4-雪花算法"><a href="#4-雪花算法" class="headerlink" title="4 雪花算法"></a>4 雪花算法</h1><blockquote><p>由推特提出的关于分布式id算法<br>64bit的long类型<br>引入时间戳，保证递增<br>64bit组成分别为：</p><ul><li><img src="19.png" alt><ul><li><img src="20.png" alt><br>如何使用：</li></ul></li></ul></blockquote><h2 id="4-1-mycat配置"><a href="#4-1-mycat配置" class="headerlink" title="4.1 mycat配置"></a>4.1 mycat配置</h2><blockquote><p>mycat端对配置文件进行更改</p><ul><li><img src="21.png" alt></li><li><code>insert into o_order(total_amount,order_status)values(444,2)</code></li><li>对分片规则进行设定，雪花算法分配的id较大，尽量别使用默认分片规则，可使用mod取余规则</li><li>reload @@config</li><li>成功进行id生成</li></ul></blockquote><blockquote><p><code>vim conf/sequence_time_conf.proporties</code>配置了数据中心和workID<br>当部署多台时，可在此配置文件中进行添加<br><img src="22.png" alt="此两个参数只能设置为小于32的数"></p></blockquote><h2 id="4-2-sharding-JDBC配置"><a href="#4-2-sharding-JDBC配置" class="headerlink" title="4.2 sharding-JDBC配置"></a>4.2 sharding-JDBC配置</h2><h3 id="4-2-1-xml文件配置方法"><a href="#4-2-1-xml文件配置方法" class="headerlink" title="4.2.1 xml文件配置方法"></a>4.2.1 xml文件配置方法</h3><blockquote><p><img src="23.png" alt><br>使用标准分片规则，在重写的接口中进行取模规则设定<br><img src="24.png" alt="重写规则策略"><br>生成id成功</p></blockquote><h3 id="4-3-3-springboot配置方法"><a href="#4-3-3-springboot配置方法" class="headerlink" title="4.3.3 springboot配置方法"></a>4.3.3 springboot配置方法</h3><blockquote><p>改application.properties<br><img src="25.png" alt></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JAVA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>基于sharding jdbc的分库分表与读写分离</title>
       <link href="2021/03/29/ji-yu-sharding-jdbc-de-fen-ku-fen-biao-yu-du-xie-fen-chi/"/>
       <url>2021/03/29/ji-yu-sharding-jdbc-de-fen-ku-fen-biao-yu-du-xie-fen-chi/</url>

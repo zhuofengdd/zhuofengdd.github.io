@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zhuofengdd.top/"/>
-  <updated>2021-03-29T08:22:41.256Z</updated>
+  <updated>2021-03-29T13:26:40.162Z</updated>
   <id>http://www.zhuofengdd.top/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>十分钟了解分布式全局id</title>
+    <link href="http://www.zhuofengdd.top/2021/03/29/shi-fen-zhong-liao-jie-fen-bu-shi-quan-ju-id/"/>
+    <id>http://www.zhuofengdd.top/2021/03/29/shi-fen-zhong-liao-jie-fen-bu-shi-quan-ju-id/</id>
+    <published>2021-03-29T08:30:07.000Z</published>
+    <updated>2021-03-29T13:26:40.162Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;1.png&quot; alt&gt;&lt;br&gt;&lt;img src=&quot;2.png&quot; alt&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;1-分库分表引发的id问题&quot;&gt;&lt;a href=&quot;#1-分库分表引发的id问题&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="blog" scheme="http://www.zhuofengdd.top/categories/blog/"/>
+    
+    
+      <category term="JAVA" scheme="http://www.zhuofengdd.top/tags/JAVA/"/>
+    
+  </entry>
   
   <entry>
     <title>基于sharding jdbc的分库分表与读写分离</title>

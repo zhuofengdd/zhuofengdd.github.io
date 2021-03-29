@@ -4,19 +4,23 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="分库分表的原理及技术介绍, zhuofeng BioMedicalEngineering 脉搏采集 生物信号采集 生物信息处理">
+    <meta name="keywords" content="十分钟了解分布式全局id, zhuofeng BioMedicalEngineering 脉搏采集 生物信号采集 生物信息处理">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
     <meta name="description" content="
-在部署分布式集群后，每个节点的请求落到的tomcat服务器是不一样的，单体锁不能保证服务的可靠性，因此需要读写分离、分库分表
 
 
-读多写少如何解决？  –读库写库分别部署海量数据？  –数据切分（垂直切分、水平切分）
+1 分库分表引发的id问题
+每张表都有唯一标识，通常使用id
 
-1 数据切分
+id通常采用自增的方式
 
-垂">
+分库分表情况下，每张表id从0开始自增
+
+不同的分片上。id可能重复——&amp;gt;id不唯一
+2 UUID
+UUID–&amp;gt;通用唯一识别码使用U">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -24,7 +28,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>分库分表的原理及技术介绍 | Zhuofeng&#39;s Blog</title>
+    <title>十分钟了解分布式全局id | Zhuofeng&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -324,13 +328,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        分库分表的原理及技术介绍
+                        十分钟了解分布式全局id
                     </div>
                 </div>
             </div>
@@ -446,10 +450,6 @@
                             <span class="chip bg-color">JAVA</span>
                         </a>
                         
-                        <a href="/tags/SQL/" target="_blank">
-                            <span class="chip bg-color">SQL</span>
-                        </a>
-                        
                     </div>
                     
                 </div>
@@ -484,14 +484,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    658
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    2 分
                 </div>
                 
                 
@@ -508,274 +508,123 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>在部署分布式集群后，每个节点的请求落到的tomcat服务器是不一样的，单体锁不能保证服务的可靠性，因此需要读写分离、分库分表</p>
+<p><img src="1.png" alt><br><img src="2.png" alt></p>
+</blockquote>
+<h1 id="1-分库分表引发的id问题"><a href="#1-分库分表引发的id问题" class="headerlink" title="1 分库分表引发的id问题"></a>1 分库分表引发的id问题</h1><ul>
+<li><p>每张表都有唯一标识，通常使用id</p>
+</li>
+<li><p>id通常采用自增的方式</p>
+</li>
+<li><p>分库分表情况下，每张表id从0开始自增</p>
+</li>
+<li><p>不同的分片上。id可能重复——&gt;id不唯一<br><img src="3.png" alt></p>
+<h1 id="2-UUID"><a href="#2-UUID" class="headerlink" title="2 UUID"></a>2 UUID</h1><blockquote>
+<p>UUID–&gt;通用唯一识别码<br>使用UUID，可保证每一条记录的id不同</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>缺点：</strong>只是单纯id，无意义，长度32位过长</p>
+<blockquote>
+<p>MyCat不支持UUID，sharding JDBC支持UUID</p>
 </blockquote>
 <blockquote>
-<p>读多写少如何解决？  –读库写库分别部署<br>海量数据？  –数据切分（垂直切分、水平切分）</p>
-</blockquote>
-<h2 id="1-数据切分"><a href="#1-数据切分" class="headerlink" title="1 数据切分"></a>1 数据切分</h2><blockquote>
 <ul>
-<li><strong>垂直切分</strong><br><img src="3.png" alt><br><img src="4.png" alt><br><img src="5.png" alt><br><img src="6.png" alt><ul>
-<li>跨库消耗性能</li>
+<li>sharding-JDBC使用UUID</li>
+<li>配置中application.proporties对shardingJDBC的配置追加两行：<ul>
+<li><img src="4.png" alt></li>
 </ul>
 </li>
-<li><strong>水平切分</strong><br><img src="7.png" alt><br><img src="8.png" alt><br><img src="9.png" alt><br><img src="10.png" alt><br>实际中，通常先垂直后水平</li>
+<li>设定对应列与key生成策略</li>
+<li><img src="5.png" alt="测试"><br>如果使用UUID生成的列进行分片策略配置，则不能使用行内表达式<br>且要进行自定义分片策略：<ul>
+<li><img src="6.png" alt="这里需要重写方法，从而获取生成的UUID"></li>
+<li><img src="7.png" alt></li>
+</ul>
+</li>
 </ul>
 </blockquote>
-<h2 id="2-实现读写分离和数据切分的方式"><a href="#2-实现读写分离和数据切分的方式" class="headerlink" title="2 实现读写分离和数据切分的方式"></a>2 实现读写分离和数据切分的方式</h2><ul>
-<li>中间代理（MyCat）<br><img src="1.png" alt="中间代理"></li>
-<li>客户端模式（sharding-jdbc）<br><img src="2.png" alt="客户端模式"></li>
-</ul>
-<h2 id="3-MyCat环境搭建"><a href="#3-MyCat环境搭建" class="headerlink" title="3 MyCat环境搭建"></a>3 MyCat环境搭建</h2><blockquote>
-<p><img src="11.png" alt><br><img src="12.png" alt><br><img src="13.png" alt><br><img src="14.png" alt></p>
-</blockquote>
-<h3 id="3-1-mysql安装："><a href="#3-1-mysql安装：" class="headerlink" title="3.1 mysql安装："></a>3.1 mysql安装：</h3><blockquote>
+<h1 id="3-统一ID序列"><a href="#3-统一ID序列" class="headerlink" title="3 统一ID序列"></a>3 统一ID序列</h1><blockquote>
+<p>ID的值统一从一个集中的ID生成器中获取，避免重复<br><img src="8.png" alt><br>MyCat支持Id序列生成，shardingJDBC不支持<br>两种方式：<strong>本地文件方式</strong>和<strong>数据库方式</strong></p>
 <ul>
-<li>安装yum仓库    //在官网找对应的步骤，很全面</li>
-<li>仓库传到131与132虚拟机上 /opt/      //rz命令 可以传文件</li>
-<li><code>yum -y install lrzsz</code></li>
-<li><img src="15.png" alt></li>
-<li><code>yum install mysql-community--server</code></li>
-<li><code>service start mysql</code>启动</li>
-<li><code>grep &#39;temporary password&#39; /var/log/mysqld.log</code>查看临时密码</li>
-<li>登录</li>
-<li>修改密码</li>
-<li><img src="16.png" alt></li>
-<li>创建用户，使用老的加密方式，mysql8使用了新的加密方式，不这么写，不然navicat连不上</li>
-<li>授权</li>
-<li><img src="17.png" alt></li>
+<li>测试环境：本地文件形式</li>
+<li>上线后：数据库模式</li>
+<li>优点：ID集中管理，避免重复</li>
+<li>缺点:并发量大时，数据库压力大</li>
 </ul>
 </blockquote>
-<h3 id="3-2-MyCat安装"><a href="#3-2-MyCat安装" class="headerlink" title="3.2 MyCat安装"></a>3.2 MyCat安装</h3><blockquote>
+<h2 id="3-1-本地文件方式"><a href="#3-1-本地文件方式" class="headerlink" title="3.1 本地文件方式"></a>3.1 本地文件方式</h2><blockquote>
+<p>使用131与132进行演示</p>
 <ul>
-<li>mycat.io官网下载压缩包</li>
-<li>/opt、目录下   rz命令上传</li>
-<li>tar -zxvf 解压</li>
-<li>修改配置文件</li>
+<li>在130的mycat上更改server.xml<ul>
+<li><img src="9.png" alt></li>
+</ul>
+</li>
+<li>sequence_conf.proporties<ul>
+<li><img src="10.png" alt></li>
+</ul>
+</li>
+<li>改完后在130的mycat命令行界面键入：(后缀名与上述文件中配置、表名一致)</li>
+<li><img src="12.png" alt></li>
+<li>在插入数据时 报错：mycat的bug—–&gt;解决方法如下图：<ul>
+<li><img src="11.png" alt></li>
+<li>改完配置要reload @@config；</li>
+</ul>
+</li>
+<li>重新运行sql语句就可以了<br>当不想给语句中写id时，可以在schema.xml进行修改<ul>
+<li><blockquote>
+<p><img src="13.png" alt></p>
+</blockquote>
+</li>
+</ul>
+</li>
 </ul>
 </blockquote>
-<h4 id="3-2-1-server-xml"><a href="#3-2-1-server-xml" class="headerlink" title="3.2.1 server.xml"></a>3.2.1 server.xml</h4><blockquote>
+<h2 id="3-2-数据库方式"><a href="#3-2-数据库方式" class="headerlink" title="3.2 数据库方式"></a>3.2 数据库方式</h2><blockquote>
 <ul>
+<li>首先改序列方式<ul>
+<li><img src="14.png" alt></li>
+</ul>
+</li>
+<li>数据库中建表，只能选择一个节点</li>
+<li>其中根目录的dbseq.sql为对应脚本，使用命令<code>sz dbseq.sql</code></li>
+<li>在131的数据库执行，生成MYCAT_SEQUENCE表和对应函数<ul>
+<li><img src="15.png" alt="表"></li>
+<li><img src="16.png" alt="函数"></li>
+<li><img src="17.png" alt="在表中添加序列"></li>
+<li>配置sequence_db_conf.proporties</li>
 <li><img src="18.png" alt></li>
-<li>用户和数据库</li>
+<li><code>./bin/mycat restart</code>重启一下</li>
+</ul>
+</li>
 </ul>
 </blockquote>
-<h4 id="3-2-2-schema-xml"><a href="#3-2-2-schema-xml" class="headerlink" title="3.2.2 schema.xml"></a>3.2.2 schema.xml</h4><blockquote>
+<h1 id="4-雪花算法"><a href="#4-雪花算法" class="headerlink" title="4 雪花算法"></a>4 雪花算法</h1><blockquote>
+<p>由推特提出的关于分布式id算法<br>64bit的long类型<br>引入时间戳，保证递增<br>64bit组成分别为：</p>
 <ul>
-<li>配置dataHost——dataNode——–schema</li>
-<li><img src="19.png" alt></li>
-<li>配置131和132</li>
-<li><img src="20.png" alt></li>
+<li><img src="19.png" alt><ul>
+<li><img src="20.png" alt><br>如何使用：</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="4-1-mycat配置"><a href="#4-1-mycat配置" class="headerlink" title="4.1 mycat配置"></a>4.1 mycat配置</h2><blockquote>
+<p>mycat端对配置文件进行更改</p>
+<ul>
 <li><img src="21.png" alt></li>
-<li>此处的user和server.xml里的也要对应</li>
-<li>在两个tomcat里创建对应数据库与表，一定要对应 </li>
-<li>这里分片的规则默认为auto-sharding-long   对应了rule.xml里的配置</li>
-<li>每种规则对应一个映射txt文件，里面包含了分片具体设定</li>
-<li><img src="22.png" alt></li>
-</ul>
-</blockquote>
-<h4 id="3-2-3-启动"><a href="#3-2-3-启动" class="headerlink" title="3.2.3 启动"></a>3.2.3 启动</h4><blockquote>
-<ul>
-<li>./bin/mycat console     //打印日志在服务台</li>
-<li>navicat连接</li>
-<li><img src="23.png" alt><br>插入一条数据，对应的分片tomcat也会同步数据，分片规则以id为根据，配置详情在&gt;txt文件里。</li>
-</ul>
-</blockquote>
-<h3 id="3-3-server-xml详细配置"><a href="#3-3-server-xml详细配置" class="headerlink" title="3.3 server.xml详细配置"></a>3.3 server.xml详细配置</h3><blockquote>
-<ul>
-<li><img src="24.png" alt></li>
-<li><img src="25.png" alt></li>
-<li>/opt目录下server.xml，schema标签要和schema.xml里的schema标签相对应</li>
-<li>MyCat使用的也是老的加密方式，</li>
-<li><img src="26.png" alt></li>
-<li>使用mysql客户端命令行连接应指定老的加密方式</li>
-<li><code>mysql -uroot -p -P8066 -h127.0.0.1 --default-auth=mysql_native_password</code>这样就可以连接了</li>
-</ul>
-</blockquote>
-<h3 id="3-4-schema-xml详细配置"><a href="#3-4-schema-xml详细配置" class="headerlink" title="3.4 schema.xml详细配置"></a>3.4 schema.xml详细配置</h3><blockquote>
-<ul>
-<li><img src="27.png" alt></li>
-<li><img src="28.png" alt></li>
-<li>dataHost着重看两个参数  writeType与balance</li>
-<li><img src="29.png" alt></li>
-<li>sqlMaxLimit：可以进行限制条数</li>
-<li><img src="30.png" alt></li>
-<li><img src="31.png" alt></li>
-<li><img src="32.png" alt><br>mycat启动有两个端口，8066和9066，都可以用navicat进行连接，可以在9066端口里<code>show @@help</code><br><code>reload @@config</code>可以在配置文件更改后不重启服务的情况下进行配置更新</li>
-</ul>
-</blockquote>
-<h3 id="3-5-rule-xml详细配置"><a href="#3-5-rule-xml详细配置" class="headerlink" title="3.5 rule.xml详细配置"></a>3.5 rule.xml详细配置</h3><blockquote>
-<ul>
-<li>配置分片规则tablerule标签对应了分片规则，function标签   对应了txt文件</li>
-<li>txt文件中可以进行分片的具体设定</li>
-<li>mycat的分片规则可以在文档中查看，比如：分片枚举，可以根据固定的值进行分库</li>
-<li>以分片枚举为例：<ul>
-<li><img src="40.png" alt></li>
-<li><img src="41.png" alt></li>
-<li><img src="42.png" alt></li>
-<li><img src="43.png" alt></li>
-<li><img src="44.png" alt></li>
-</ul>
-</li>
-<li>mycat添加字段，修改会同步到所有子节点上。</li>
-<li>根据province_id进行分片,根据枚举值进行分片，非枚举值插入默认节点</li>
-<li>每次改配置文件后要在9066端口进行reload @@config</li>
-<li>取模规则（常用）<ul>
-<li><img src="45.png" alt></li>
-<li><img src="46.png" alt></li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<h2 id="4-Mycat配置实操"><a href="#4-Mycat配置实操" class="headerlink" title="4 Mycat配置实操"></a>4 Mycat配置实操</h2><h3 id="4-1-mycat层面读写分离"><a href="#4-1-mycat层面读写分离" class="headerlink" title="4.1 mycat层面读写分离"></a>4.1 mycat层面读写分离</h3><blockquote>
-<ul>
-<li>读写分离配置，主从的数据库名称也要一致。读和写</li>
-<li>这里的配置不涉及同步，同步后面讲解</li>
-<li>如果修改的是数据源，要在9066端口<code>reload @@config_all</code>，此操作较慢</li>
-<li><img src="33.png" alt></li>
-<li>分别测试balance为0（只在写库）、1（读请求进行读写库切换，主要针对双主双从，主互为主备的情况，这种况M2.S1.S2会参与负载均衡，M1不会）、2（所有读操作随机分配在读库和写库上）、3（所有读请求分配到读库上，写库不会有读请求压力）</li>
-<li>测试writeType 分别为0（默认为0，表示插入操作时插入在第一个写库，如果此库挂了<code>system stop mysqld</code>，则插入顺序往下的第一个写库,重新启动后的写库排在队列末尾）、1（） </li>
-</ul>
-</blockquote>
-<h3 id="4-2-mysql层面读写分离"><a href="#4-2-mysql层面读写分离" class="headerlink" title="4.2 mysql层面读写分离"></a>4.2 mysql层面读写分离</h3><h4 id="4-2-1"><a href="#4-2-1" class="headerlink" title="4.2.1"></a>4.2.1</h4><blockquote>
-<ul>
-<li>这里的主从配置可以实现数据同步</li>
-<li><img src="35.png" alt></li>
-<li>主<ul>
-<li><code>vim /etc/my.cnf</code></li>
-<li>配置log-bin与server-id</li>
-</ul>
-</li>
-<li>从<ul>
-<li>配置server-id</li>
-<li>service restart mysql</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<h4 id="4-2-2"><a href="#4-2-2" class="headerlink" title="4.2.2"></a>4.2.2</h4><blockquote>
-<ul>
-<li><img src="36.png" alt></li>
-<li>主创建授权账号——开启mysql——创建用户（用默认加密方式就可）—授权</li>
-<li><img src="37.png" alt></li>
-<li>主进行锁表(此时向主插入会失败，卡住)<ul>
-<li><code>flush tables with read lock;</code></li>
-<li><img src="38.png" alt>记住文件名称和位置</li>
-<li>dump文件复制到从机，使用scp命令</li>
-</ul>
-</li>
-<li>从机<ul>
-<li><code>scp root@192.168.73.131:~/dbdump.db .</code>在输入机器密码即可复制到当前目录</li>
-<li>从机<code>mysql &lt; dbdump.db -uroot -p</code></li>
-</ul>
-</li>
-<li>主 <code>unlock tables</code></li>
-</ul>
-</blockquote>
-<h4 id="4-2-3"><a href="#4-2-3" class="headerlink" title="4.2.3"></a>4.2.3</h4><blockquote>
-<ul>
-<li>从机中配置主机，在mysql中</li>
-<li><img src="39.png" alt>，</li>
-<li>输入主机ip，主从同步的用户user，密码，文件名，位置,内容单引号包裹</li>
-<li><code>start slave;</code></li>
-</ul>
-<p><em>这样配置后，mysql的主从便搭建好了，通过MyCat层面和mysql层面的配置，便可实现同步的读写分离</em> </p>
-</blockquote>
-<h2 id="5-全局表与子表"><a href="#5-全局表与子表" class="headerlink" title="5 全局表与子表"></a>5 全局表与子表</h2><h3 id="5-1-全局表"><a href="#5-1-全局表" class="headerlink" title="5.1 全局表"></a>5.1 全局表</h3><blockquote>
-<p>比如一些不变的东西，省市区之类的数据经常会用来关联查询，所以常设置为全局表<br><img src="47.png" alt></p>
-</blockquote>
-<h3 id="5-2-子表"><a href="#5-2-子表" class="headerlink" title="5.2 子表"></a>5.2 子表</h3><blockquote>
-<p>比如订单使用order_id取模，订单详情与商品信息也进行分片，想查询一个订单的所有信息，有可能因所在主机不同而不成功。跨库操作。这样的话就需要子表，保证两者在一个主机上。<br><img src="48.png" alt><br><img src="49.png" alt></p>
-<ul>
-<li>建库建表</li>
-<li><img src="50.png" alt></li>
-<li>这样子表会对应父表进行分片，防止跨库操作。</li>
-</ul>
-</blockquote>
-<h2 id="6-MyCat的HA"><a href="#6-MyCat的HA" class="headerlink" title="6 MyCat的HA"></a>6 MyCat的HA</h2><h3 id="6-1-原理"><a href="#6-1-原理" class="headerlink" title="6.1 原理"></a>6.1 原理</h3><blockquote>
-<ul>
-<li>保证一个节点挂了也不影响使用</li>
-<li><img src="51.png" alt></li>
-<li><img src="52.png" alt></li>
-<li><img src="53.png" alt></li>
-<li>Haproxy用作负载均衡，区别于Nginx（<strong>基于http</strong>请求），haproxy为<strong>tcp层的代理</strong></li>
-<li>keepalived设置双主热备，通过虚拟ip进行访问</li>
-</ul>
-</blockquote>
-<h3 id="6-2-实现步骤"><a href="#6-2-实现步骤" class="headerlink" title="6.2 实现步骤"></a>6.2 实现步骤</h3><h4 id="6-2-1-Haproxy的负载均衡实现"><a href="#6-2-1-Haproxy的负载均衡实现" class="headerlink" title="6.2.1 Haproxy的负载均衡实现"></a>6.2.1 Haproxy的负载均衡实现</h4><blockquote>
-<ul>
-<li><img src="54.png" alt></li>
-<li>三台mysql，一台mycat</li>
-<li><code>scp -r root@192.168.73.130:/opt/mycat</code>复制mycat，将131也设置为mycat，-r为递归</li>
-<li>启动两台主机的mycat</li>
-<li>在132主机安装haproxy，<code>yum serach haproxy</code>——-<code>yum -y install haproxy</code></li>
-<li>配置haproxy配置文件<code>vim /etc/haproxy/haproxy.cfg</code></li>
-<li>mode改为tcp</li>
-<li>关注端口5000</li>
-<li>默认走backend app<br>-负载均衡策略<ul>
-<li>server:名字，ip，端口</li>
-</ul>
-</li>
+<li><code>insert into o_order(total_amount,order_status)values(444,2)</code></li>
+<li>对分片规则进行设定，雪花算法分配的id较大，尽量别使用默认分片规则，可使用mod取余规则</li>
+<li>reload @@config</li>
+<li>成功进行id生成</li>
 </ul>
 </blockquote>
 <blockquote>
-<ul>
-<li><code>haproxy -f /etc/haproxy/haproxy.cfg</code>启动</li>
-<li><img src="55.png" alt></li>
-<li>navicat中连接haproxy，密码为mycat的密码，可成功登录。</li>
-</ul>
-<p><em>到此完成负载均衡</em></p>
+<p><code>vim conf/sequence_time_conf.proporties</code>配置了数据中心和workID<br>当部署多台时，可在此配置文件中进行添加<br><img src="22.png" alt="此两个参数只能设置为小于32的数"></p>
 </blockquote>
-<h4 id="6-2-2-keepalived部署"><a href="#6-2-2-keepalived部署" class="headerlink" title="6.2.2 keepalived部署"></a>6.2.2 keepalived部署</h4><blockquote>
-<ul>
-<li>130主机 <code>yum install -y haproxy</code></li>
-<li><img src="56.png" alt></li>
-<li><img src="57.png" alt></li>
-</ul>
-<p><em>此时主机130、132部署haproxy，全都做了负载均衡，映射130与131上的8066端口，即mycat，两台mycat配置相同，即具有相同的读写库设置与分片原理</em></p>
-<ul>
-<li><code>yum search keepalived</code>进行搜索；<code>yum install -y keepalived</code>进行安装</li>
-<li><code>vim /etc/keepalived/keepalived.conf</code></li>
-<li>进行配置<br><img src="58.png" alt><br><img src="59.png" alt="网卡要改，在ip addr里查看，通常是ens33"><br><img src="60.png" alt><ul>
-<li>要将ssl改为tcp检查</li>
-<li>一台keepalived对应一台haproxy，因此配置好虚拟ip后，只需要在虚拟ip配置里配置一台real_server</li>
-</ul>
-</li>
-<li>同理在132也安装keepalived，conf文件可以直接从130复制</li>
-<li>两台主机启动keepalived<code>keepalived -f /etc/keepalived/keepalived.conf</code></li>
-<li><code>ps -ef|grep keepalived</code>查看进程</li>
-<li>此时使用ip addr便可查看到，130的ens33网卡对应两个ip，一个是自身的130，一个是keepalived的虚拟ip，而132则只有一个</li>
-<li>navicat 连接虚拟ip，密码为mycat密码，端口为自己设定的端口，访问成功！</li>
-<li>当130的keepalived挂掉之后，132则会开启，网卡中的映射增加一个虚拟ip；130重新开启后，虚拟ip也依然绑定的是132，不会变动</li>
-<li>但当把132的haproxy 关闭后，keepalived并没有切换。出问题了！！！</li>
-<li>解决：<ul>
-<li>conf文件中删掉对应的tcp_check，这玩意没起作用</li>
-<li>写一个vrrp_script chk_haproxy{}<ul>
-<li><code>kill -0 haproxy</code>如果haproxy正常返回0，宕机返回1（返回值可用<code>echo $?</code>进行查看）</li>
-<li>没有此命令的话<code>yum search killall</code>—–<code>yum install psmisc.x86_64</code></li>
-</ul>
-</li>
-<li><img src="61.png" alt="脚本，每两秒执行一次"></li>
-<li><img src="62.png" alt="脚本插入虚拟ip的设置里"></li>
-<li>大括号前要加空格，注意。。</li>
-</ul>
-</li>
-</ul>
-<p><em>至此，haproxy的负载均衡与keepalived的双主热备就介绍完了</em><br><em>mycat部分也告一段落</em></p>
+<h2 id="4-2-sharding-JDBC配置"><a href="#4-2-sharding-JDBC配置" class="headerlink" title="4.2 sharding-JDBC配置"></a>4.2 sharding-JDBC配置</h2><h3 id="4-2-1-xml文件配置方法"><a href="#4-2-1-xml文件配置方法" class="headerlink" title="4.2.1 xml文件配置方法"></a>4.2.1 xml文件配置方法</h3><blockquote>
+<p><img src="23.png" alt><br>使用标准分片规则，在重写的接口中进行取模规则设定<br><img src="24.png" alt="重写规则策略"><br>生成id成功</p>
 </blockquote>
-<blockquote>
-<ul>
-<li>一致性哈希</li>
-<li>对于一般电商项目，期待的是每个用户下单，能快速地根据相关表进行查询，并且在统计所有订单时可以轻松的在同一主机上获取，这种情况最好根据用户id进行分片，使用一致性哈希规则。并且为订单表配置相关子表，便于条件查询</li>
-<li><img src="63.png" alt></li>
-<li><img src="64.png" alt></li>
-<li><img src="65.png" alt></li>
-</ul>
+<h3 id="4-3-3-springboot配置方法"><a href="#4-3-3-springboot配置方法" class="headerlink" title="4.3.3 springboot配置方法"></a>4.3.3 springboot配置方法</h3><blockquote>
+<p>改application.properties<br><img src="25.png" alt></p>
 </blockquote>
-<blockquote>
-<p><strong>有喜欢的小伙伴可以多多分享哦</strong><br><strong>欢迎打赏！！！</strong></p>
-</blockquote>
-<p><em>本系列均为原创，如有引用请注明出处，如以本内容获取盈利，本人有法律权益进行相关维权！！</em></p>
 
             </div>
             <hr />
@@ -934,9 +783,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《分库分表的原理及技术介绍》
+                    《十分钟了解分布式全局id》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/03/29/fen-ku-fen-biao-yu-du-xie-fen-chi-de-yuan-li-ji-ji-yu-mycat-de-ji-zhu-jie-shao/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/03/29/shi-fen-zhong-liao-jie-fen-bu-shi-quan-ju-id/" property="cc:attributionName"
                rel="cc:attributionURL">
                 zhuofeng
             </a> 采用
@@ -977,7 +826,7 @@
         repo: 'zhuofengdd.github.io',
         owner: 'zhuofengdd',
         admin: "zhuofengdd",
-        id: '2021/03/29/fen-ku-fen-biao-yu-du-xie-fen-chi-de-yuan-li-ji-ji-yu-mycat-de-ji-zhu-jie-shao/',
+        id: '2021/03/29/shi-fen-zhong-liao-jie-fen-bu-shi-quan-ju-id/',
         distractionFreeMode: true  // Facebook-like distraction free mode
     });
 
@@ -1260,9 +1109,72 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/03/29/shi-fen-zhong-liao-jie-fen-bu-shi-quan-ju-id/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="十分钟了解分布式全局id">
+                        
+                        <span class="card-title">十分钟了解分布式全局id</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+
+
+1 分库分表引发的id问题
+每张表都有唯一标识，通常使用id
+
+id通常采用自增的方式
+
+分库分表情况下，每张表id从0开始自增
+
+不同的分片上。id可能重复——&gt;id不唯一
+2 UUID
+UUID–&gt;通用唯一识别码使用U
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/blog/" class="post-category" target="_blank">
+                                    blog
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JAVA/" target="_blank">
+                        <span class="chip bg-color">JAVA</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/03/29/ji-yu-sharding-jdbc-de-fen-ku-fen-biao-yu-du-xie-fen-chi/">
                     <div class="card-image">
@@ -1296,9 +1208,9 @@ sharding JDBC区别于MYcat，是基于客户端的代理模式
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1320,64 +1232,6 @@ sharding JDBC区别于MYcat，是基于客户端的代理模式
                     
                     <a href="/tags/SQL/" target="_blank">
                         <span class="chip bg-color">SQL</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/28/mai-bo-bo-chu-li-yu-fen-xi-jiang-zao-pian-yi/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="脉搏波处理与分析——降噪篇（一）">
-                        
-                        <span class="card-title">脉搏波处理与分析——降噪篇（一）</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-
-今天打算开一个系列，属于信号处理与分析范畴。
-这是我硕士研究生在读期间总结的一部分，旨在对脉搏波进行一个较为完整的分析与处理。
-本系列分为两部分，一部分为脉搏波数据降噪，另一部分为脉搏波特征提取
-希望能给接触到信号分析领域的学弟学妹或者
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-28
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/信号处理/" class="post-category" target="_blank">
-                                    信号处理
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/脉搏波/" target="_blank">
-                        <span class="chip bg-color">脉搏波</span>
-                    </a>
-                    
-                    <a href="/tags/降噪/" target="_blank">
-                        <span class="chip bg-color">降噪</span>
                     </a>
                     
                 </div>
