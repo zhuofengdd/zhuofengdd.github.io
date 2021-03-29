@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zhuofengdd.top/"/>
-  <updated>2021-03-28T13:16:07.872Z</updated>
+  <updated>2021-03-29T05:59:55.621Z</updated>
   <id>http://www.zhuofengdd.top/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>分库分表的原理及技术介绍</title>
+    <link href="http://www.zhuofengdd.top/2021/03/29/fen-ku-fen-biao-de-yuan-li-ji-ji-zhu-jie-shao/"/>
+    <id>http://www.zhuofengdd.top/2021/03/29/fen-ku-fen-biao-de-yuan-li-ji-ji-zhu-jie-shao/</id>
+    <published>2021-03-29T00:03:10.000Z</published>
+    <updated>2021-03-29T05:59:55.621Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;在部署分布式集群后，每个节点的请求落到的tomcat服务器是不一样的，单体锁不能保证服务的可靠性，因此需要读写分离、分库分表&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;读多写少如何解决？ 
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>分库分表的原理及技术介绍</title>
+    <link href="http://www.zhuofengdd.top/2021/03/29/fen-ku-fen-biao-de-yuan-li-ji-ji-yu-mycat-de-ji-zhu-jie-shao/"/>
+    <id>http://www.zhuofengdd.top/2021/03/29/fen-ku-fen-biao-de-yuan-li-ji-ji-yu-mycat-de-ji-zhu-jie-shao/</id>
+    <published>2021-03-29T00:03:10.000Z</published>
+    <updated>2021-03-29T06:27:46.262Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;在部署分布式集群后，每个节点的请求落到的tomcat服务器是不一样的，单体锁不能保证服务的可靠性，因此需要读写分离、分库分表&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;读多写少如何解决？ 
+        
+      
+    
+    </summary>
+    
+      <category term="blog" scheme="http://www.zhuofengdd.top/categories/blog/"/>
+    
+    
+      <category term="JAVA" scheme="http://www.zhuofengdd.top/tags/JAVA/"/>
+    
+  </entry>
   
   <entry>
     <title>脉搏波处理与分析——降噪篇（一）</title>
@@ -70,9 +126,9 @@
       <category term="blog" scheme="http://www.zhuofengdd.top/categories/blog/"/>
     
     
-      <category term="RabbitMQ" scheme="http://www.zhuofengdd.top/tags/RabbitMQ/"/>
-    
       <category term="JAVA" scheme="http://www.zhuofengdd.top/tags/JAVA/"/>
+    
+      <category term="RabbitMQ" scheme="http://www.zhuofengdd.top/tags/RabbitMQ/"/>
     
   </entry>
   
