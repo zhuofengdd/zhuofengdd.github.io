@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>基于sharding jdbc的分库分表与读写分离</title>
+      <link href="2021/03/29/ji-yu-sharding-jdbc-de-fen-ku-fen-biao-yu-du-xie-fen-chi/"/>
+      <url>2021/03/29/ji-yu-sharding-jdbc-de-fen-ku-fen-biao-yu-du-xie-fen-chi/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><blockquote><ul><li>sharding JDBC区别于MYcat，是基于客户端的代理模式</li><li>只能由java语言使用</li><li><img src="1.png" alt></li><li><img src="2.png" alt></li><li><img src="3.png" alt></li><li>业务全部通过sharding-JDBC进行数据库的连接</li><li>注册中心可以使用zookeeper</li><li><img src="4.png" alt></li><li>与mycat区别：<ul><li><img src="5.png" alt></li></ul></li></ul></blockquote><h2 id="2-sharding-JDBC的使用"><a href="#2-sharding-JDBC的使用" class="headerlink" title="2 sharding-JDBC的使用"></a>2 sharding-JDBC的使用</h2><blockquote><p><strong>官方网站：</strong> <a href="https://shardingsphere.apache.org" target="_blank" rel="noopener">shardingsphere.apache.org</a></p></blockquote><h3 id="2-1-概念"><a href="#2-1-概念" class="headerlink" title="2.1 概念"></a>2.1 概念</h3><blockquote><ul><li>逻辑表</li><li>真实表</li><li>数据节点</li><li>绑定表（类似于mycat的子表）</li><li>广播表（全局表）</li></ul></blockquote><h3 id="2-2-建库"><a href="#2-2-建库" class="headerlink" title="2.2 建库"></a>2.2 建库</h3><blockquote><ul><li>针对于131、132两个虚拟机</li><li><img src="6.png" alt="shard_order"></li><li>复制两份t_order1、t_order2(sharding-JDBC支持一个数据库分片)</li><li><strong>实现功能：</strong>先使用user_id进行数据库的分片，在使用id进行数据表的分片</li><li>使用mybatis-generator进行文件生成</li></ul></blockquote><h3 id="2-3-xml配置"><a href="#2-3-xml配置" class="headerlink" title="2.3 xml配置"></a>2.3 xml配置</h3><blockquote><ul><li>引入maven依赖</li><li><img src="7.png" alt></li><li>xml文件加入命名空间</li><li>数据源配置(两个)<ul><li><img src="8.png" alt></li></ul></li><li>sharding的datasource<ul><li><img src="9.png" alt="先配置数据库分片规则"></li><li><img src="10.png" alt="配置表的分片规则"></li><li><img src="11.png" alt="sharding:data-source配置"></li></ul></li><li>mybatis的sqlSessionFactory<ul><li><img src="12.png" alt></li></ul></li><li>把mapper.xml中所有t_order1替换为t_order逻辑表</li><li>启动类引入xml文件、扫描包<ul><li><img src="13.png" alt></li><li><img src="16.png" alt></li></ul></li><li>测试<ul><li>注入ordermapper</li><li><img src="14.png" alt></li><li><img src="15.png" alt></li></ul></li></ul></blockquote><h2 id="2-4-springboot使用"><a href="#2-4-springboot使用" class="headerlink" title="2.4 springboot使用"></a>2.4 springboot使用</h2><blockquote><ul><li>引用maven包</li><li><img src="17.png" alt></li><li>applition.proporities配置<ul><li><img src="18.png" alt="数据源"></li><li><img src="19.png" alt="分片策略"></li><li><img src="20.png" alt="mybatis"></li></ul></li><li>测试<ul><li>同上—-成功</li><li><img src="21.png" alt></li></ul></li></ul></blockquote><h2 id="3-全局（广播表）"><a href="#3-全局（广播表）" class="headerlink" title="3 全局（广播表）"></a>3 全局（广播表）</h2><blockquote><ul><li>建表</li><li>applition.proporties配置</li><li><img src="22.png" alt></li><li>测试</li></ul></blockquote><h2 id="4-子表（绑定表）"><a href="#4-子表（绑定表）" class="headerlink" title="4 子表（绑定表）"></a>4 子表（绑定表）</h2><blockquote><ul><li>避免跨库查询</li><li>创建关联表<br>……</li></ul></blockquote><blockquote><p>想到知识点随时补充，欢迎小伙伴们常点击。<br><strong>有喜欢的小伙伴可以多多分享哦</strong><br><strong>欢迎打赏！！！</strong></p></blockquote><p><em>本系列均为原创，如有引用请注明出处，如以本内容获取盈利，本人有法律权益进行相关维权！！</em></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JAVA </tag>
+            
+            <tag> SQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>分库分表的原理及技术介绍</title>
       <link href="2021/03/29/fen-ku-fen-biao-yu-du-xie-fen-chi-de-yuan-li-ji-ji-yu-mycat-de-ji-zhu-jie-shao/"/>
       <url>2021/03/29/fen-ku-fen-biao-yu-du-xie-fen-chi-de-yuan-li-ji-ji-yu-mycat-de-ji-zhu-jie-shao/</url>

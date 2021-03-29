@@ -4,16 +4,27 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="脉搏波处理与分析——降噪篇（一）, zhuofeng BioMedicalEngineering 脉搏采集 生物信号采集 生物信息处理">
+    <meta name="keywords" content="基于sharding jdbc的分库分表与读写分离, zhuofeng BioMedicalEngineering 脉搏采集 生物信号采集 生物信息处理">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="
+    <meta name="description" content="1 简介
 
-今天打算开一个系列，属于信号处理与分析范畴。
-这是我硕士研究生在读期间总结的一部分，旨在对脉搏波进行一个较为完整的分析与处理。
-本系列分为两部分，一部分为脉搏波数据降噪，另一部分为脉搏波特征提取
-希望能给接触到信号分析领域的学弟学妹或者">
+sharding JDBC区别于MYcat，是基于客户端的代理模式
+只能由java语言使用
+
+
+
+业务全部通过sharding-JDBC进行数据库的连接
+注册中心可以使用zookeeper
+
+与mycat区别：
+
+
+
+
+
+2 s">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -21,7 +32,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>脉搏波处理与分析——降噪篇（一） | Zhuofeng&#39;s Blog</title>
+    <title>基于sharding jdbc的分库分表与读写分离 | Zhuofeng&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -321,13 +332,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/40.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        脉搏波处理与分析——降噪篇（一）
+                        基于sharding jdbc的分库分表与读写分离
                     </div>
                 </div>
             </div>
@@ -439,12 +450,12 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/脉搏波/" target="_blank">
-                            <span class="chip bg-color">脉搏波</span>
+                        <a href="/tags/JAVA/" target="_blank">
+                            <span class="chip bg-color">JAVA</span>
                         </a>
                         
-                        <a href="/tags/降噪/" target="_blank">
-                            <span class="chip bg-color">降噪</span>
+                        <a href="/tags/SQL/" target="_blank">
+                            <span class="chip bg-color">SQL</span>
                         </a>
                         
                     </div>
@@ -455,8 +466,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/信号处理/" class="post-category" target="_blank">
-                            信号处理
+                        <a href="/categories/blog/" class="post-category" target="_blank">
+                            blog
                         </a>
                         
                     </div>
@@ -467,7 +478,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-28
+                    2021-03-29
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -481,14 +492,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    350
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    1 分
                 </div>
                 
                 
@@ -504,66 +515,109 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
+                <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h2><blockquote>
 <ul>
-<li>今天打算开一个系列，属于<strong>信号处理与分析</strong>范畴。</li>
-<li>这是我硕士研究生在读期间总结的一部分，旨在对<strong>脉搏波</strong>进行一个较为完整的分析与处理。</li>
-<li>本系列分为两部分，一部分为<strong>脉搏波数据降噪</strong>，另一部分为<strong>脉搏波特征提取</strong></li>
-<li>希望能给接触到信号分析领域的学弟学妹或者同学提供一个帮助和引导。</li>
-<li>基于语言与工具：Matlab</li>
-<li>针对数据序列：一维</li>
-<li>后面我将会详细介绍我所写的代码对应的功能与对应知识点</li>
-<li>PS：此算法仅针对脉搏波，当然技术与原理是共通的。降噪部分也可以应用到其他信号中去</li>
+<li>sharding JDBC区别于MYcat，是基于客户端的代理模式</li>
+<li>只能由java语言使用</li>
+<li><img src="1.png" alt></li>
+<li><img src="2.png" alt></li>
+<li><img src="3.png" alt></li>
+<li>业务全部通过sharding-JDBC进行数据库的连接</li>
+<li>注册中心可以使用zookeeper</li>
+<li><img src="4.png" alt></li>
+<li>与mycat区别：<ul>
+<li><img src="5.png" alt></li>
+</ul>
+</li>
 </ul>
 </blockquote>
-<h2 id="1-何为脉搏波？"><a href="#1-何为脉搏波？" class="headerlink" title="1. 何为脉搏波？"></a>1. 何为脉搏波？</h2><pre><code>脉搏波的检测起始于我国古代的中医脉诊。在西方医学的诞生前，我国中医便依据经验不断地传承发展下来。形成了自己独有的一套诊疗体系。
-在中医所说的四诊“望、闻、问、切”中，最为重要的便是“切脉”，所述“切脉”并不为人所常称呼，我们常称其为把脉，凭借的便是医生指下对脉搏的搏动感知，进而对身体情况进行评判。
-这很难在现代的科学社会所被承认。诚然，中医在历史的医学发展中扮演着不可或缺的一部分，但在其发展过程中，仅凭借医师口口相传，以经验进行教学，每个人的悟法不同，便可得到不同的意思，以此形式发展，必然是不可循证，且无法评判诊疗的正确性和真实性的。
-因此我们有必要对脉搏进行拆解、去分析。发现不同脉象的规律与判定。</code></pre><h2 id="2-脉搏波长啥样？"><a href="#2-脉搏波长啥样？" class="headerlink" title="2. 脉搏波长啥样？"></a>2. 脉搏波长啥样？</h2><p>随便给大家展示一下：<br><img src="1.png" alt="脉搏波1"></p>
-<blockquote>
-<p>有看清楚吗?<br>包括完整的<strong>波峰</strong>和<strong>波谷</strong>，以及<strong>重搏波</strong>。这肯定就是脉搏波没错了！！<br>如果你那么确定，那再看一张：</p>
+<h2 id="2-sharding-JDBC的使用"><a href="#2-sharding-JDBC的使用" class="headerlink" title="2 sharding-JDBC的使用"></a>2 sharding-JDBC的使用</h2><blockquote>
+<p><strong>官方网站：</strong> <a href="https://shardingsphere.apache.org" target="_blank" rel="noopener">shardingsphere.apache.org</a></p>
 </blockquote>
-<p><img src="2.png" alt="脉搏波2"></p>
-<blockquote>
-<p>您可能要跟我争论了，这tn的也能叫脉搏波？这不就是一个波峰吗<br>您给说对了，这就是只有单波峰的脉搏波。</p>
-</blockquote>
-<blockquote>
-<p>其实脉搏波形状多种多样，每个人的脉搏都会跳动出不同的样子，不同于教科书，就像树叶一样，世界上没有两个相同的脉搏波形。你是唯一且独特的。<br>但其实最标准的脉搏是这个样子的：</p>
-</blockquote>
-<p><img src="3.png" alt="脉搏波"></p>
-<blockquote>
-<p>可以看到正常的脉搏波是由<strong>波谷-&gt;波峰-&gt;波峰谷点-&gt;重搏前波-&gt;重搏波谷-&gt;重搏波-&gt;波谷</strong>所组成的。<br>这个过程对应着<strong>左心室收缩射血-&gt;二尖瓣关闭-&gt;射血结束期-&gt;主动脉瓣关闭</strong>等一系列的过程，如果你对局部解剖学感兴趣，可以看一看心血循环对应的内容。<br>当然以上所述的心血循环过程并不保证顺序正确与内容全面。自己这方面的知识也有所忘记。只是阐述一下相关的过程，等我再次温习的时候会回来进行补充。</p>
-<p>图中的字母含义先在此进行解释：</p>
+<h3 id="2-1-概念"><a href="#2-1-概念" class="headerlink" title="2.1 概念"></a>2.1 概念</h3><blockquote>
 <ul>
-<li>a-&gt;脉搏波谷点</li>
-<li>b-&gt;脉搏波波峰</li>
-<li>c-&gt;波峰谷点</li>
-<li>d-&gt;重博前波</li>
-<li>e-&gt;重搏波谷</li>
-<li>f-&gt;重搏波</li>
-<li>g-&gt;下一个周期的脉搏波谷点；即起点   </li>
-<li>h1、h2、h3、h4、h5-&gt;分别对应相应点的高度，即幅值</li>
-<li>t1、t5-&gt;对应相应点所需要的时间</li>
-<li>T-&gt;周期</li>
+<li>逻辑表</li>
+<li>真实表</li>
+<li>数据节点</li>
+<li>绑定表（类似于mycat的子表）</li>
+<li>广播表（全局表）</li>
 </ul>
-<p>当然因为每个人的脉象不同，也就代表了不同的体质。<br>中医医师从脉象中辨别病情，若脉搏波信息可以数字化，以科学的方法做评判会对中医切脉带来莫大的帮助与发展。</p>
 </blockquote>
-<h2 id="3-找不到脉搏波数据？"><a href="#3-找不到脉搏波数据？" class="headerlink" title="3. 找不到脉搏波数据？"></a>3. 找不到脉搏波数据？</h2><blockquote>
-<p>这可能是很多人最苦恼的事情。<br>在读大学的学弟学妹接触此方面数据处理时，总是愁于找不到对应的数据。<br>的确，现在网络上想找到优秀的脉搏波数据库并不容易。心声信号倒是可以查到很多。<br>在此我将给同学们介绍一个对应的脉搏波数据库，直接贴网站：<br><a href="http://www4.comp.polyu.edu.hk/" target="_blank" rel="noopener">http://www4.comp.polyu.edu.hk/</a><br>这是由香港理工大学生物医学工程系团队搭建的数据库。里面包括了很多系列，舌象、指纹、心声、脉搏等等数据库。<br>可以说还是蛮全面的了，我所编写的处理算法就是以此数据进行处理的<br>如果有不会操作的小伙伴可以联系我的邮箱<em><a href="mailto:1192821364@qq.com" target="_blank" rel="noopener">1192821364@qq.com</a></em>或<em><a href="mailto:zhuofengdd@outlook.com" target="_blank" rel="noopener">zhuofengdd@outlook.com</a></em>备注好需求<br>或在评论区留言，我可以以压缩包的方式邮件传送给你。<br>里面的文件全都是 .mat格式，matlab一个简单的语句就可导入：</p>
-<pre class="line-numbers language-matlab"><code class="language-matlab">clc<span class="token punctuation">;</span>
-clear all<span class="token punctuation">;</span>
-<span class="token function">load</span><span class="token punctuation">(</span><span class="token string">'PolyU_Pressure_Pulse.mat'</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">%这里的路径写你所存放此文件的路径</span>
-Fs <span class="token operator">=</span> <span class="token number">500</span><span class="token punctuation">;</span>   <span class="token comment" spellcheck="true">%MIT数据库心电采样频率为500Hz--------------可调参数-------------</span>
-patientNum<span class="token operator">=</span><span class="token number">165</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">%可设定对应的序号</span>
-pulseSig <span class="token operator">=</span> <span class="token function">Diabetes</span><span class="token punctuation">(</span>patientNum<span class="token punctuation">,</span><span class="token operator">:</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment" spellcheck="true">%--------------可调参数-------------提取对应序号下的脉搏波序列</span>
-t <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token function">length</span><span class="token punctuation">(</span>pulseSig<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">%时间序列</span>
-tx <span class="token operator">=</span> t<span class="token operator">./</span>Fs<span class="token punctuation">;</span> <span class="token comment" spellcheck="true">%表示所处时间点位</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>进行绘图</p>
-<pre><code>plot(pulseSig);grid on;
-title(&#39;原始信号&#39;);</code></pre><p>可看到结果：<br><img src="4.png" alt="165号原始脉搏信息"><br>就是如此简单，拿到脉搏后小伙伴们就可以针对自己的需求做对应的操作了。</p>
+<h3 id="2-2-建库"><a href="#2-2-建库" class="headerlink" title="2.2 建库"></a>2.2 建库</h3><blockquote>
+<ul>
+<li>针对于131、132两个虚拟机</li>
+<li><img src="6.png" alt="shard_order"></li>
+<li>复制两份t_order1、t_order2(sharding-JDBC支持一个数据库分片)</li>
+<li><strong>实现功能：</strong>先使用user_id进行数据库的分片，在使用id进行数据表的分片</li>
+<li>使用mybatis-generator进行文件生成</li>
+</ul>
+</blockquote>
+<h3 id="2-3-xml配置"><a href="#2-3-xml配置" class="headerlink" title="2.3 xml配置"></a>2.3 xml配置</h3><blockquote>
+<ul>
+<li>引入maven依赖</li>
+<li><img src="7.png" alt></li>
+<li>xml文件加入命名空间</li>
+<li>数据源配置(两个)<ul>
+<li><img src="8.png" alt></li>
+</ul>
+</li>
+<li>sharding的datasource<ul>
+<li><img src="9.png" alt="先配置数据库分片规则"></li>
+<li><img src="10.png" alt="配置表的分片规则"></li>
+<li><img src="11.png" alt="sharding:data-source配置"></li>
+</ul>
+</li>
+<li>mybatis的sqlSessionFactory<ul>
+<li><img src="12.png" alt></li>
+</ul>
+</li>
+<li>把mapper.xml中所有t_order1替换为t_order逻辑表</li>
+<li>启动类引入xml文件、扫描包<ul>
+<li><img src="13.png" alt></li>
+<li><img src="16.png" alt></li>
+</ul>
+</li>
+<li>测试<ul>
+<li>注入ordermapper</li>
+<li><img src="14.png" alt></li>
+<li><img src="15.png" alt></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="2-4-springboot使用"><a href="#2-4-springboot使用" class="headerlink" title="2.4 springboot使用"></a>2.4 springboot使用</h2><blockquote>
+<ul>
+<li>引用maven包</li>
+<li><img src="17.png" alt></li>
+<li>applition.proporities配置<ul>
+<li><img src="18.png" alt="数据源"></li>
+<li><img src="19.png" alt="分片策略"></li>
+<li><img src="20.png" alt="mybatis"></li>
+</ul>
+</li>
+<li>测试<ul>
+<li>同上—-成功</li>
+<li><img src="21.png" alt></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="3-全局（广播表）"><a href="#3-全局（广播表）" class="headerlink" title="3 全局（广播表）"></a>3 全局（广播表）</h2><blockquote>
+<ul>
+<li>建表</li>
+<li>applition.proporties配置</li>
+<li><img src="22.png" alt></li>
+<li>测试</li>
+</ul>
+</blockquote>
+<h2 id="4-子表（绑定表）"><a href="#4-子表（绑定表）" class="headerlink" title="4 子表（绑定表）"></a>4 子表（绑定表）</h2><blockquote>
+<ul>
+<li>避免跨库查询</li>
+<li>创建关联表<br>……</li>
+</ul>
 </blockquote>
 <blockquote>
-<p>第一篇介绍到这里暂时告一段落，下一篇将要开始介绍降噪的过程了<br>想到知识点随时补充，欢迎小伙伴们常点击。<br><strong>有喜欢的小伙伴可以多多分享哦</strong><br><strong>欢迎打赏！！！</strong></p>
+<p>想到知识点随时补充，欢迎小伙伴们常点击。<br><strong>有喜欢的小伙伴可以多多分享哦</strong><br><strong>欢迎打赏！！！</strong></p>
 </blockquote>
 <p><em>本系列均为原创，如有引用请注明出处，如以本内容获取盈利，本人有法律权益进行相关维权！！</em></p>
 
@@ -724,9 +778,9 @@ title(&#39;原始信号&#39;);</code></pre><p>可看到结果：<br><img src="4.
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《脉搏波处理与分析——降噪篇（一）》
+                    《基于sharding jdbc的分库分表与读写分离》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/03/28/mai-bo-bo-chu-li-yu-fen-xi-jiang-zao-pian-yi/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2021/03/29/ji-yu-sharding-jdbc-de-fen-ku-fen-biao-yu-du-xie-fen-chi/" property="cc:attributionName"
                rel="cc:attributionURL">
                 zhuofeng
             </a> 采用
@@ -767,7 +821,7 @@ title(&#39;原始信号&#39;);</code></pre><p>可看到结果：<br><img src="4.
         repo: 'zhuofengdd.github.io',
         owner: 'zhuofengdd',
         admin: "zhuofengdd",
-        id: '2021/03/28/mai-bo-bo-chu-li-yu-fen-xi-jiang-zao-pian-yi/',
+        id: '2021/03/29/ji-yu-sharding-jdbc-de-fen-ku-fen-biao-yu-du-xie-fen-chi/',
         distractionFreeMode: true  // Facebook-like distraction free mode
     });
 
@@ -1050,9 +1104,80 @@ title(&#39;原始信号&#39;);</code></pre><p>可看到结果：<br><img src="4.
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/03/29/ji-yu-sharding-jdbc-de-fen-ku-fen-biao-yu-du-xie-fen-chi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/40.jpg" class="responsive-img" alt="基于sharding jdbc的分库分表与读写分离">
+                        
+                        <span class="card-title">基于sharding jdbc的分库分表与读写分离</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            1 简介
+
+sharding JDBC区别于MYcat，是基于客户端的代理模式
+只能由java语言使用
+
+
+
+业务全部通过sharding-JDBC进行数据库的连接
+注册中心可以使用zookeeper
+
+与mycat区别：
+
+
+
+
+
+2 s
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-29
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/blog/" class="post-category" target="_blank">
+                                    blog
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/JAVA/" target="_blank">
+                        <span class="chip bg-color">JAVA</span>
+                    </a>
+                    
+                    <a href="/tags/SQL/" target="_blank">
+                        <span class="chip bg-color">SQL</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/03/29/fen-ku-fen-biao-yu-du-xie-fen-chi-de-yuan-li-ji-ji-yu-mycat-de-ji-zhu-jie-shao/">
                     <div class="card-image">
@@ -1078,9 +1203,9 @@ title(&#39;原始信号&#39;);</code></pre><p>可看到结果：<br><img src="4.
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1102,59 +1227,6 @@ title(&#39;原始信号&#39;);</code></pre><p>可看到结果：<br><img src="4.
                     
                     <a href="/tags/SQL/" target="_blank">
                         <span class="chip bg-color">SQL</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/27/rabbitmq-ji-chu/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="RabbitMQ基础">
-                        
-                        <span class="card-title">RabbitMQ基础</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            RabbitMQ 实战教程1.MQ引言1.1 什么是MQMQ(Message Quene) :  翻译为 消息队列,通过典型的 生产者和消费者模型,生产者不断向消息队列中生产消息，消费者不断的从队列中获取消息。因为消息的生产和消费都是异步的
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2021-03-27
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/blog/" class="post-category" target="_blank">
-                                    blog
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/RabbitMQ/" target="_blank">
-                        <span class="chip bg-color">RabbitMQ</span>
-                    </a>
-                    
-                    <a href="/tags/JAVA/" target="_blank">
-                        <span class="chip bg-color">JAVA</span>
                     </a>
                     
                 </div>
