@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>十分钟了解分布式事务</title>
+      <link href="2021/03/30/shi-fen-zhong-liao-jie-fen-bu-shi-shi-wu/"/>
+      <url>2021/03/30/shi-fen-zhong-liao-jie-fen-bu-shi-shi-wu/</url>
+      
+        <content type="html"><![CDATA[<p>为什么需要分布式事务？</p><blockquote><p>在传统数据库中满足ACID四个属性，是没有问题的。<br>但当分库分表后，操作AB数据库，想保证数据统一是比较难的。<br>本章将介绍CAP原理、ACID原理以及BASE原理。<br>基于XA协议的两阶段提交（不提倡使用，容易导致数据库挂起状态）<br>事务补偿机制（回滚接口）<br>基于本地消息表的最终一致方案<br>基于MQ消息队列的最终一致方案</p></blockquote><h2 id="1-分布式事务问题"><a href="#1-分布式事务问题" class="headerlink" title="1 分布式事务问题"></a>1 分布式事务问题</h2><blockquote><p>传统数据库使用</p><ul><li><img src="1.png" alt></li><li><img src="2.png" alt><br>分布式系统（A、B用户落在不同数据库，A向B转钱，如果出问题无法同步）</li><li><img src="3.png" alt></li><li><img src="4.png" alt></li><li><img src="5.png" alt></li></ul></blockquote><h2 id="2-基于XA协议的两阶段提交"><a href="#2-基于XA协议的两阶段提交" class="headerlink" title="2 基于XA协议的两阶段提交"></a>2 基于XA协议的两阶段提交</h2><h3 id="2-1原理"><a href="#2-1原理" class="headerlink" title="2.1原理"></a>2.1原理</h3><blockquote><ul><li><img src="6.png" alt> </li><li><img src="7.png" alt></li><li><img src="8.png" alt></li><li><img src="9.png" alt="Atomikos为事务管理器"></li></ul></blockquote><h3 id="2-2-实际操作："><a href="#2-2-实际操作：" class="headerlink" title="2.2 实际操作："></a>2.2 实际操作：</h3><blockquote><ul><li>创建工程springboot</li><li>引入jar包<ul><li><img src="10.png" alt></li></ul></li><li>创建config包，建立两个对应不同数据库的数据源注入<ul><li><img src="11.png" alt></li><li><img src="12.png" alt="生成对应sqlSessionFactoryBean"></li><li><img src="13.png" alt="类头注解，扫描包，一个数据源直接配置在启动类，当配置多个，就得分别加"></li><li><img src="14.png" alt="配置事务管理器"></li><li>132 同理</li></ul></li><li>mybatisGenerator生成两个mapper文件</li><li>创建service进行插入语句编写</li><li><img src="15.png" alt="使用resource注解，autowird注解会有红线"></li><li>使用测试类进行测试：当一个数据库插入操作发生异常时，会统一回滚，运行正常！</li></ul></blockquote><h3 id="2-3-基于mycat的xa协议设置"><a href="#2-3-基于mycat的xa协议设置" class="headerlink" title="2.3 基于mycat的xa协议设置"></a>2.3 基于mycat的xa协议设置</h3><blockquote><ul><li>配置server.xml中的handleDistributedTransactions对应标签</li><li><img src="16.png" alt></li></ul></blockquote><blockquote><ul><li><img src="17.png" alt="关闭自动提交，开启xa "></li><li><img src="18.png" alt="在项目中直接连接mycat，就支持分布式事务"></li></ul></blockquote><h3 id="2-4-基于sharding-JDBC的xa协议设置"><a href="#2-4-基于sharding-JDBC的xa协议设置" class="headerlink" title="2.4 基于sharding-JDBC的xa协议设置"></a>2.4 基于sharding-JDBC的xa协议设置</h3><blockquote><ul><li><img src="19.png" alt="默认开启。不用管"></li></ul></blockquote><h2 id="3-事务补偿机制"><a href="#3-事务补偿机制" class="headerlink" title="3 事务补偿机制"></a>3 事务补偿机制</h2><blockquote><ul><li><img src="20.png" alt></li><li><img src="21.png" alt></li><li><img src="23.png" alt></li><li><img src="24.png" alt="补偿也有可能出错"></li><li><img src="25.png" alt></li></ul></blockquote><h2 id="基于本地方法表"><a href="#基于本地方法表" class="headerlink" title="基于本地方法表"></a>基于本地方法表</h2><blockquote><ul><li><img src="26.png" alt></li><li><img src="27.png" alt></li><li><img src="28.png" alt></li><li><img src="29.png" alt></li><li><img src="30.png" alt></li></ul></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JAVA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>十分钟了解分布式全局id</title>
       <link href="2021/03/29/shi-fen-zhong-liao-jie-fen-bu-shi-quan-ju-id/"/>
       <url>2021/03/29/shi-fen-zhong-liao-jie-fen-bu-shi-quan-ju-id/</url>
@@ -126,9 +151,9 @@
       
         <tags>
             
-            <tag> RabbitMQ </tag>
-            
             <tag> JAVA </tag>
+            
+            <tag> RabbitMQ </tag>
             
         </tags>
       

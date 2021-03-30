@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zhuofengdd.top/"/>
-  <updated>2021-03-29T13:26:40.162Z</updated>
+  <updated>2021-03-30T02:55:27.726Z</updated>
   <id>http://www.zhuofengdd.top/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>十分钟了解分布式事务</title>
+    <link href="http://www.zhuofengdd.top/2021/03/30/shi-fen-zhong-liao-jie-fen-bu-shi-shi-wu/"/>
+    <id>http://www.zhuofengdd.top/2021/03/30/shi-fen-zhong-liao-jie-fen-bu-shi-shi-wu/</id>
+    <published>2021-03-30T01:43:49.000Z</published>
+    <updated>2021-03-30T02:55:27.726Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;为什么需要分布式事务？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在传统数据库中满足ACID四个属性，是没有问题的。&lt;br&gt;但当分库分表后，操作AB数据库，想保证数据统一是比较难的。&lt;br&gt;本章将介绍CAP原理、ACID原理以及BASE原理。&lt;br&gt;基于XA协议的两阶段提交（
+        
+      
+    
+    </summary>
+    
+      <category term="blog" scheme="http://www.zhuofengdd.top/categories/blog/"/>
+    
+    
+      <category term="JAVA" scheme="http://www.zhuofengdd.top/tags/JAVA/"/>
+    
+  </entry>
   
   <entry>
     <title>十分钟了解分布式全局id</title>
@@ -161,9 +189,9 @@
       <category term="blog" scheme="http://www.zhuofengdd.top/categories/blog/"/>
     
     
-      <category term="RabbitMQ" scheme="http://www.zhuofengdd.top/tags/RabbitMQ/"/>
-    
       <category term="JAVA" scheme="http://www.zhuofengdd.top/tags/JAVA/"/>
+    
+      <category term="RabbitMQ" scheme="http://www.zhuofengdd.top/tags/RabbitMQ/"/>
     
   </entry>
   
