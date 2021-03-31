@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zhuofengdd.top/"/>
-  <updated>2021-03-30T13:26:35.460Z</updated>
+  <updated>2021-03-31T02:51:54.650Z</updated>
   <id>http://www.zhuofengdd.top/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>微服务架构认知</title>
+    <link href="http://www.zhuofengdd.top/2021/03/30/wei-fu-wu-jia-gou-ren-zhi/"/>
+    <id>http://www.zhuofengdd.top/2021/03/30/wei-fu-wu-jia-gou-ren-zhi/</id>
+    <published>2021-03-30T13:28:22.000Z</published>
+    <updated>2021-03-31T02:51:54.650Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&quot;1.png&quot; alt&gt;&lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;2.png&quot; alt&gt;&lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;3.png&quot; alt&gt;&lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;4.png&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="blog" scheme="http://www.zhuofengdd.top/categories/blog/"/>
+    
+    
+      <category term="JAVA" scheme="http://www.zhuofengdd.top/tags/JAVA/"/>
+    
+      <category term="springcloud" scheme="http://www.zhuofengdd.top/tags/springcloud/"/>
+    
+  </entry>
   
   <entry>
     <title>十分钟了解分布式限流</title>
