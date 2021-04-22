@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zhuofengdd.top/"/>
-  <updated>2021-03-31T02:51:54.650Z</updated>
+  <updated>2021-03-31T04:57:45.176Z</updated>
   <id>http://www.zhuofengdd.top/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Eureka的理解与深入</title>
+    <link href="http://www.zhuofengdd.top/2021/03/31/eureka-de-li-jie-yu-shen-ru/"/>
+    <id>http://www.zhuofengdd.top/2021/03/31/eureka-de-li-jie-yu-shen-ru/</id>
+    <published>2021-03-31T02:54:39.000Z</published>
+    <updated>2021-03-31T04:57:45.176Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&quot;1.png&quot; alt&gt;&lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;2.png&quot; alt&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;分布式系统CAP定理&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="blog" scheme="http://www.zhuofengdd.top/categories/blog/"/>
+    
+    
+      <category term="springcloud" scheme="http://www.zhuofengdd.top/tags/springcloud/"/>
+    
+  </entry>
   
   <entry>
     <title>微服务架构认知</title>
@@ -70,6 +102,37 @@
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;h2
+        
+      
+    
+    </summary>
+    
+      <category term="blog" scheme="http://www.zhuofengdd.top/categories/blog/"/>
+    
+    
+      <category term="JAVA" scheme="http://www.zhuofengdd.top/tags/JAVA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>十分钟了解接口幂等性</title>
+    <link href="http://www.zhuofengdd.top/2021/03/30/shi-fen-zhong-liao-jie-jie-kou-mi-deng-xing/"/>
+    <id>http://www.zhuofengdd.top/2021/03/30/shi-fen-zhong-liao-jie-jie-kou-mi-deng-xing/</id>
+    <published>2021-03-30T06:33:29.000Z</published>
+    <updated>2021-04-01T05:57:19.594Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&quot;1.png&quot; alt&gt;&lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;2.png&quot; alt&gt;&lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;3.png&quot; alt&gt;&lt;/li&gt;
+&lt;li&gt;&lt;img src=&quot;4.png&quot;
         
       
     

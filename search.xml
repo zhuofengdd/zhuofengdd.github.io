@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Eureka的理解与深入</title>
+      <link href="2021/03/31/eureka-de-li-jie-yu-shen-ru/"/>
+      <url>2021/03/31/eureka-de-li-jie-yu-shen-ru/</url>
+      
+        <content type="html"><![CDATA[<blockquote><ul><li><img src="1.png" alt></li><li><img src="2.png" alt></li></ul></blockquote><h2 id="分布式系统CAP定理"><a href="#分布式系统CAP定理" class="headerlink" title="分布式系统CAP定理"></a>分布式系统CAP定理</h2><blockquote><ul><li><img src="3.png" alt></li></ul></blockquote><h2 id="服务治理的技术与区别"><a href="#服务治理的技术与区别" class="headerlink" title="服务治理的技术与区别"></a>服务治理的技术与区别</h2><blockquote><ul><li><img src="4.png" alt></li><li><img src="5.png" alt></li></ul></blockquote><h2 id="创建服务注册中心"><a href="#创建服务注册中心" class="headerlink" title="创建服务注册中心"></a>创建服务注册中心</h2><blockquote><ul><li><img src="6.png" alt="改为pom类型"></li><li><img src="7.png" alt>  </li><li><img src="8.png" alt><br>创建module：eureka-server<br>引入依赖、改为jar类型<ul><li><img src="9.png" alt><br>创建启动类</li><li><img src="10.png" alt><br>配置文件改动：</li><li><img src="11.png" alt></li></ul></li><li><img src="12.png" alt><br>UI页面讲解</li></ul></blockquote><h2 id="注册服务提供方"><a href="#注册服务提供方" class="headerlink" title="注册服务提供方"></a>注册服务提供方</h2><blockquote><ul><li><img src="13.png" alt></li><li>module：eureka-client</li><li>添加依赖<ul><li><img src="14.png" alt></li></ul></li><li><img src="15.png" alt="启动类"></li><li><img src="16.png" alt="controller"></li><li><img src="17.png" alt="配置中心"></li></ul></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> springcloud </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>微服务架构认知</title>
       <link href="2021/03/30/wei-fu-wu-jia-gou-ren-zhi/"/>
       <url>2021/03/30/wei-fu-wu-jia-gou-ren-zhi/</url>
@@ -36,6 +61,31 @@
       <url>2021/03/30/shi-fen-zhong-liao-jie-fen-bu-shi-xian-liu/</url>
       
         <content type="html"><![CDATA[<blockquote><ul><li><img src="1.png" alt></li><li><img src="2.png" alt></li><li><img src="3.png" alt></li></ul></blockquote><h2 id="guava-RateLimiter客户端限流"><a href="#guava-RateLimiter客户端限流" class="headerlink" title="guava RateLimiter客户端限流"></a>guava RateLimiter客户端限流</h2><blockquote><p><em>（不是分布式，只在当前服务器起作用）</em></p><ul><li><img src="4.png" alt></li><li>创建module：rate-limiter</li><li>添加依赖：springbootstarterweb、guava</li><li>创造包、启动类、main入口<ul><li><img src="5.png" alt></li></ul></li><li>配置文件<ul><li><img src="6.png" alt></li></ul></li><li>创建controller<ul><li>创建RateLimiter对象</li><li>非阻塞限流方法</li><li><img src="7.png" alt></li><li>限时非阻塞方法(有fast-fail机制)</li><li><img src="8.png" alt></li><li>同步阻塞式限流</li><li><img src="9.png" alt></li></ul></li></ul></blockquote><h2 id="基于nginx的ip限流"><a href="#基于nginx的ip限流" class="headerlink" title="基于nginx的ip限流"></a>基于nginx的ip限流</h2><blockquote><ul><li><img src="10.png" alt><ul><li>创建方法 </li><li>nginx配置</li><li><img src="11.png" alt> </li><li><img src="12.png" alt></li><li><code>sudo /usr/local/nginx/sbin/nginx -s reload</code></li><li><img src="13.png" alt></li></ul></li></ul></blockquote><h2 id="基于服务器级别限制"><a href="#基于服务器级别限制" class="headerlink" title="基于服务器级别限制"></a>基于服务器级别限制</h2><blockquote><ul><li><img src="14.png" alt><ul><li><img src="15.png" alt></li><li><img src="16.png" alt></li></ul></li></ul></blockquote><h2 id="基于连接数级别限制"><a href="#基于连接数级别限制" class="headerlink" title="基于连接数级别限制"></a>基于连接数级别限制</h2><blockquote><ul><li><img src="17.png" alt></li><li><img src="18.png" alt></li><li><img src="19.png" alt="限制下载速度"></li></ul></blockquote><h2 id="Lua"><a href="#Lua" class="headerlink" title="Lua"></a>Lua</h2><blockquote><ul><li>脚本语言</li><li><img src="20.png" alt></li><li><img src="21.png" alt></li><li><img src="22.png" alt></li><li><img src="23.png" alt></li><li><img src="24.png" alt="hello lua"></li><li><img src="25.png" alt="假的限流脚本"></li></ul></blockquote><h2 id="Redis预加载Lua"><a href="#Redis预加载Lua" class="headerlink" title="Redis预加载Lua"></a>Redis预加载Lua</h2><blockquote><ul><li><img src="26.png" alt></li><li>启动redis——&gt;./redis-server—–&gt;./redis-cli</li><li><code>eval</code>就代表lua编写<ul><li><img src="27.png" alt></li><li><img src="28.png" alt></li><li><img src="29.png" alt></li><li><img src="30.png" alt="查看是否存在"></li><li><img src="31.png" alt="清空缓存"></li></ul></li></ul></blockquote><h2 id="限流组件封装Redis-Lua"><a href="#限流组件封装Redis-Lua" class="headerlink" title="限流组件封装Redis+Lua"></a>限流组件封装Redis+Lua</h2><blockquote><ul><li><img src="32.png" alt></li><li>创建module项目作为注解使用ratelimiter-annotation</li><li>改打包方式为jar</li><li>引入maven依赖，spingbootstarter-data-redis、springbootstarteraop、guava</li><li>建包</li><li>创建类AccessLimiter<ul><li><img src="33.png" alt></li><li><img src="34.png" alt> </li></ul></li><li>添加要使用的bean<ul><li><img src="35.png" alt></li></ul></li><li>lua脚本<ul><li><img src="36.png" alt></li><li><img src="37.png" alt></li></ul></li></ul></blockquote><blockquote><ul><li>创建新项目</li><li>添加依赖、springbootstarterweb、以及编写的ratelimiter-annotation</li><li>启动类、controller</li><li>注入AccessLimiter，对应包的类名   </li><li>配置文件：<ul><li><img src="38.png" alt></li></ul></li><li>浏览器访问即可，已经实现限流</li></ul></blockquote><blockquote><p>配置为注解<br><img src="39.png" alt><br>对应包下新建annotation包和注解类</p><ul><li><img src="40.png" alt><br>创建切面类AccessLimiterAspect</li><li><img src="41.png" alt></li><li><img src="42.png" alt>  </li><li><img src="43.png" alt></li><li><img src="44.png" alt></li><li>测试方法：成功</li><li><img src="45.png" alt></li></ul></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JAVA </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>十分钟了解接口幂等性</title>
+      <link href="2021/03/30/shi-fen-zhong-liao-jie-jie-kou-mi-deng-xing/"/>
+      <url>2021/03/30/shi-fen-zhong-liao-jie-jie-kou-mi-deng-xing/</url>
+      
+        <content type="html"><![CDATA[<blockquote><ul><li><img src="1.png" alt></li><li><img src="2.png" alt></li><li><img src="3.png" alt></li><li><img src="4.png" alt></li><li><img src="5.png" alt></li><li><img src="6.png" alt></li><li><img src="7.png" alt></li><li><img src="8.png" alt></li></ul></blockquote><h2 id="Update操作幂等性"><a href="#Update操作幂等性" class="headerlink" title="Update操作幂等性"></a>Update操作幂等性</h2><blockquote><ul><li><img src="9.png" alt></li><li><img src="10.png" alt></li><li><img src="11.png" alt></li></ul></blockquote><h2 id="Insert操作幂等性"><a href="#Insert操作幂等性" class="headerlink" title="Insert操作幂等性"></a>Insert操作幂等性</h2><blockquote><ul><li><img src="12.png" alt></li><li><img src="13.png" alt></li><li><img src="14.png" alt></li></ul></blockquote>]]></content>
       
       
       <categories>
