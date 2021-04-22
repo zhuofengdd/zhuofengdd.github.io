@@ -4,11 +4,94 @@
   
     
     <entry>
+      <title>礼物指南</title>
+      <link href="2021/04/22/li-wu-zhi-nan/"/>
+      <url>2021/04/22/li-wu-zhi-nan/</url>
+      
+        <content type="html"><![CDATA[<h2 id="送岳父"><a href="#送岳父" class="headerlink" title="送岳父"></a>送岳父</h2><h3 id="糖尿病的注意事项"><a href="#糖尿病的注意事项" class="headerlink" title="糖尿病的注意事项"></a>糖尿病的注意事项</h3><h4 id="忌口高糖食品"><a href="#忌口高糖食品" class="headerlink" title="忌口高糖食品"></a>忌口高糖食品</h4><ul><li>糖类<blockquote><p>这里包括 葡萄糖、绵白糖、白砂糖、方糖、蔗糖、果糖<br>Tips：低血糖发生时，首选升糖快的食物，一粒方糖含4-5g糖分，一瓶果汁200ml含糖17.8g，快速升糖也需要进行糖量控制。</p></blockquote></li><li>中高Gi精制主食<blockquote><p>这里包括 糯米饭、白馒头、油条、白面包、白米粥<br>Tips：提倡选择低血糖生成指数的主食，粗细搭配<br>推荐二米饭、杂粮饭、杂豆饭、杂粮面等。薯类也可以代替主食</p></blockquote></li><li>高糖水果及制品<blockquote><p>这里包括鲜枣、荔枝、龙眼、榴莲、菠萝蜜、水果干、水果罐头<br>Tips：可以选择Gi较低、含糖量低于15%的水果，水果时间可选择在两餐中间或者运动前后食用。每次使用量不宜过多</p></blockquote></li><li>含糖饮料<blockquote><p>这里包括碳酸饮料、含糖果汁等<br>Tips：推荐白开水、淡茶与咖啡</p></blockquote></li><li>冰激凌</li><li>糕点</li></ul><h4 id="高盐食品"><a href="#高盐食品" class="headerlink" title="高盐食品"></a>高盐食品</h4><ul><li>腌制品<blockquote><p>这里包括 腌菜、腊肉、火腿、咸鱼、咸鸭蛋、皮蛋</p></blockquote></li><li>调味品<blockquote><p>包括 鸡精、味精、腐乳等<br>高盐食品会增加并发症的发病风险，需要控制食盐用量，培养清淡口味，食盐用量每天不宜超过6g</p></blockquote></li></ul><h4 id="高油高脂"><a href="#高油高脂" class="headerlink" title="高油高脂"></a>高油高脂</h4><ul><li>动物油脂<blockquote><p>这里包括 肥肉、动物皮、动物油脂、奶油、黄油</p></blockquote></li><li>油炸香脆食品<blockquote><p>包括薯片薯条、炸鸡、饼干<br>烹调油摄入过多会导致膳食总能量过高，引起超重及肥胖，不利于代谢。每日控制在30g以内</p></blockquote></li></ul><h4 id="限酒"><a href="#限酒" class="headerlink" title="限酒"></a>限酒</h4><blockquote><p>啤酒、白酒、黄酒、米酒一类<br>酒精会增加口服磺脲类药物患者发生低血糖的风险。会掩盖低血糖症状，促进酮体生成。<br>引用不超过25g酒精  相当于350ml啤酒、150ml葡萄酒、45ml白酒</p></blockquote><h3 id="治疗方案"><a href="#治疗方案" class="headerlink" title="治疗方案"></a>治疗方案</h3><p>清淡饮食+按时服药+多运动+定期体检（防并发症）</p><h3 id="血糖检测的几种方式s"><a href="#血糖检测的几种方式s" class="headerlink" title="血糖检测的几种方式s"></a>血糖检测的几种方式s</h3><p>空腹血糖、餐后血糖、糖化血红蛋白参数很重要</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 礼物 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>patientLink-打造脉诊仪生态的用户交互app</title>
+      <link href="2021/04/14/patientlink-da-zao-mai-zhen-yi-sheng-tai-de-yong-hu-jiao-hu-app/"/>
+      <url>2021/04/14/patientlink-da-zao-mai-zhen-yi-sheng-tai-de-yong-hu-jiao-hu-app/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-patientLink是什么？"><a href="#1-patientLink是什么？" class="headerlink" title="1 patientLink是什么？"></a>1 patientLink是什么？</h2><pre><code>待补充</code></pre><h2 id="2-技术选型"><a href="#2-技术选型" class="headerlink" title="2 技术选型"></a>2 技术选型</h2><pre><code>前端：使用基于vue框架的quasar cli框架。后端：基于springboot框架进行搭建单体服务架构</code></pre><h2 id="3-什么是quasar？"><a href="#3-什么是quasar？" class="headerlink" title="3 什么是quasar？"></a>3 什么是quasar？</h2><pre><code>待补充</code></pre><h2 id="4-前端UI界面设计"><a href="#4-前端UI界面设计" class="headerlink" title="4 前端UI界面设计"></a>4 前端UI界面设计</h2><pre><code>待补充</code></pre><h2 id="5-前端搭建步骤"><a href="#5-前端搭建步骤" class="headerlink" title="5 前端搭建步骤"></a>5 前端搭建步骤</h2><ul><li>新建quasar项目<code>quasar create patinentLink</code></li><li>使用vscode进行编辑</li><li>在项目根目录命令行键入<code>quasar dev</code>即可在网页端进行效果查看<br><img src="2.png" alt></li></ul><h3 id="5-1-个人信息界面搭建"><a href="#5-1-个人信息界面搭建" class="headerlink" title="5.1 个人信息界面搭建"></a>5.1 个人信息界面搭建</h3><h4 id="5-1-1-添加路由"><a href="#5-1-1-添加路由" class="headerlink" title="5.1.1 添加路由"></a>5.1.1 添加路由</h4><p><img src="7.png" alt></p><ul><li>在<code>/route/routes</code>中添加图中代码</li><li>在<code>/pages</code>文件夹下新建对应vue文件</li><li>相当于注册页面，之后只要在某处进行<code>/personal</code>的跳转信息即可<h4 id="5-1-2-layout界面结构详解"><a href="#5-1-2-layout界面结构详解" class="headerlink" title="5.1.2 layout界面结构详解"></a>5.1.2 layout界面结构详解</h4><img src="3.png" alt></li><li>在此页面中进行布局的搭建，可以设置对应顶部栏，侧边栏，底部栏的样式和按钮以及点击事件</li><li>可以进行魔改，官方给出了热门软件的界面代码可做参考<a href="http://www.quasarchs.com/layout/gallery" target="_blank" rel="noopener">参考界面</a></li><li>关于布局也可在官方文档给出的布局生成器中生成对应代码<a href="http://www.quasarchs.com/layout-builder/" target="_blank" rel="noopener">布局生成器</a></li><li>本项目暂时以原始界面进行改动</li></ul><h4 id="5-1-3-layout界面改动"><a href="#5-1-3-layout界面改动" class="headerlink" title="5.1.3 layout界面改动"></a>5.1.3 layout界面改动</h4><p><img src="4.png" alt="header的变动"><br><img src="5.png" alt="侧边栏的变动"><br><img src="9.png" alt="路由数据块设置"><br><img src="6.png" alt="模块化的EssentialLink"></p><p><img src="8.png" alt></p><ul><li>图中通过代码约束了footer的显示，同时对选项激活与非激活状态进行了颜色和样式设置<h4 id="5-1-4-personal界面改动"><a href="#5-1-4-personal界面改动" class="headerlink" title="5.1.4 personal界面改动"></a>5.1.4 personal界面改动</h4><img src="10.png" alt="信息栏"><br><img src="11.png" alt="页面选项卡"><br><img src="12.png" alt="页面选项数据对象"><br><img src="13.png" alt="menu组件"></li></ul><h2 id="6-后端搭建步骤"><a href="#6-后端搭建步骤" class="headerlink" title="6 后端搭建步骤"></a>6 后端搭建步骤</h2><h3 id="6-1-项目结构"><a href="#6-1-项目结构" class="headerlink" title="6.1 项目结构"></a>6.1 项目结构</h3><h3 id="6-2-数据库设计"><a href="#6-2-数据库设计" class="headerlink" title="6.2 数据库设计"></a>6.2 数据库设计</h3><h3 id="6-3-mybatis-plus"><a href="#6-3-mybatis-plus" class="headerlink" title="6.3 mybatis-plus"></a>6.3 mybatis-plus</h3><h4 id="6-3-1-springboot启动时报错-错误-找不到或无法加载主类-com-xxx-xxx-Application"><a href="#6-3-1-springboot启动时报错-错误-找不到或无法加载主类-com-xxx-xxx-Application" class="headerlink" title="6.3.1 springboot启动时报错 错误: 找不到或无法加载主类 com.xxx.xxx.Application"></a>6.3.1 springboot启动时报错 错误: 找不到或无法加载主类 com.xxx.xxx.Application</h4><pre><code>mvn clean compilemvn installmvn spring-boot:run</code></pre><h3 id="6-3-2-启动报错-错误：Correct-the-classpath-of-your-application-so-that-it-contains-a-single-compatible-version-of-org-apache-ibatis-annotations-Select"><a href="#6-3-2-启动报错-错误：Correct-the-classpath-of-your-application-so-that-it-contains-a-single-compatible-version-of-org-apache-ibatis-annotations-Select" class="headerlink" title="6.3.2 启动报错 错误：Correct the classpath of your application so that it contains a single, compatible version of org.apache.ibatis.annotations.Select"></a>6.3.2 启动报错 错误：Correct the classpath of your application so that it contains a single, compatible version of org.apache.ibatis.annotations.Select</h3><p><img src="14.png" alt><br>版本过高，将mybatis-plus改为3.3.1即可</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> app </tag>
+            
+            <tag> java </tag>
+            
+            <tag> vue </tag>
+            
+            <tag> quasar </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>figma基础操作</title>
+      <link href="2021/04/09/figma-ji-chu-cao-zuo/"/>
+      <url>2021/04/09/figma-ji-chu-cao-zuo/</url>
+      
+        <content type="html"><![CDATA[<h2 id="为什么使用figma？"><a href="#为什么使用figma？" class="headerlink" title="为什么使用figma？"></a>为什么使用figma？</h2><p>figma和sketch一样，都是用来进行UI设计的。figma的特点就是可以协同操作，并且跨平台。<br>官方网站：<a href="https://www.figma.com" target="_blank" rel="noopener">www.figma.com</a><br><img src="1.png" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> UI </tag>
+            
+            <tag> figma </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Eureka的理解与深入</title>
       <link href="2021/03/31/eureka-de-li-jie-yu-shen-ru/"/>
       <url>2021/03/31/eureka-de-li-jie-yu-shen-ru/</url>
       
-        <content type="html"><![CDATA[<blockquote><ul><li><img src="1.png" alt></li><li><img src="2.png" alt></li></ul></blockquote><h2 id="分布式系统CAP定理"><a href="#分布式系统CAP定理" class="headerlink" title="分布式系统CAP定理"></a>分布式系统CAP定理</h2><blockquote><ul><li><img src="3.png" alt></li></ul></blockquote><h2 id="服务治理的技术与区别"><a href="#服务治理的技术与区别" class="headerlink" title="服务治理的技术与区别"></a>服务治理的技术与区别</h2><blockquote><ul><li><img src="4.png" alt></li><li><img src="5.png" alt></li></ul></blockquote><h2 id="创建服务注册中心"><a href="#创建服务注册中心" class="headerlink" title="创建服务注册中心"></a>创建服务注册中心</h2><blockquote><ul><li><img src="6.png" alt="改为pom类型"></li><li><img src="7.png" alt>  </li><li><img src="8.png" alt><br>创建module：eureka-server<br>引入依赖、改为jar类型<ul><li><img src="9.png" alt><br>创建启动类</li><li><img src="10.png" alt><br>配置文件改动：</li><li><img src="11.png" alt></li></ul></li><li><img src="12.png" alt><br>UI页面讲解</li></ul></blockquote><h2 id="注册服务提供方"><a href="#注册服务提供方" class="headerlink" title="注册服务提供方"></a>注册服务提供方</h2><blockquote><ul><li><img src="13.png" alt></li><li>module：eureka-client</li><li>添加依赖<ul><li><img src="14.png" alt></li></ul></li><li><img src="15.png" alt="启动类"></li><li><img src="16.png" alt="controller"></li><li><img src="17.png" alt="配置中心"></li></ul></blockquote>]]></content>
+        <content type="html"><![CDATA[<blockquote><ul><li><img src="1.png" alt></li><li><img src="2.png" alt></li></ul></blockquote><h2 id="分布式系统CAP定理"><a href="#分布式系统CAP定理" class="headerlink" title="分布式系统CAP定理"></a>分布式系统CAP定理</h2><blockquote><ul><li><img src="3.png" alt></li></ul></blockquote><h2 id="服务治理的技术与区别"><a href="#服务治理的技术与区别" class="headerlink" title="服务治理的技术与区别"></a>服务治理的技术与区别</h2><blockquote><ul><li><img src="4.png" alt></li><li><img src="5.png" alt></li></ul></blockquote><h2 id="创建服务注册中心"><a href="#创建服务注册中心" class="headerlink" title="创建服务注册中心"></a>创建服务注册中心</h2><blockquote><ul><li><img src="6.png" alt="改为pom类型"></li><li><img src="7.png" alt>  </li><li><img src="8.png" alt><br>创建module：eureka-server<br>引入依赖、改为jar类型<ul><li><img src="9.png" alt><br>创建启动类</li><li><img src="10.png" alt><br>配置文件改动：</li><li><img src="11.png" alt></li></ul></li><li><img src="12.png" alt><br>UI页面讲解</li></ul></blockquote><h2 id="注册服务提供方"><a href="#注册服务提供方" class="headerlink" title="注册服务提供方"></a>注册服务提供方</h2><blockquote><ul><li><img src="13.png" alt></li><li>module：eureka-client</li><li>添加依赖<ul><li><img src="14.png" alt></li></ul></li><li><img src="15.png" alt="启动类"></li><li><img src="16.png" alt="controller"></li><li><img src="17.png" alt="配置中心"><br>此时注册中心中就可以看到服务提供者了 </li></ul></blockquote><h2 id="服务消费者"><a href="#服务消费者" class="headerlink" title="服务消费者"></a>服务消费者</h2><blockquote><p>-module：eureka-consumer<br>-添加依赖</p><ul><li><img src="18.png" alt><ul><li>!启动类<a href="19.png"></a></li><li><img src="20.png" alt="controller"></li><li><img src="21.png" alt><br>启动类注入restTemplate，使用此进行请求传递<br><img src="22.png" alt="配置中心"></li></ul></li></ul></blockquote><h2 id="启用心跳健康检查"><a href="#启用心跳健康检查" class="headerlink" title="启用心跳健康检查"></a>启用心跳健康检查</h2><blockquote><ul><li><img src="23.png" alt></li><li>eureka-client中配置<ul><li><img src="24.png" alt></li></ul></li><li>eureka-server中配置</li><li><img src="25.png" alt></li></ul></blockquote><h2 id="高可用？"><a href="#高可用？" class="headerlink" title="高可用？"></a>高可用？</h2><blockquote><p>-集群加互备</p><ul><li><img src="26.png" alt></li><li><img src="27.png" alt></li><li>第二台注册中心<ul><li><img src="28.png" alt></li></ul></li></ul></blockquote>]]></content>
       
       
       <categories>
@@ -45,9 +128,9 @@
       
         <tags>
             
-            <tag> JAVA </tag>
-            
             <tag> springcloud </tag>
+            
+            <tag> JAVA </tag>
             
         </tags>
       
